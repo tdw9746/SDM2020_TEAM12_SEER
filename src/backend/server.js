@@ -64,6 +64,8 @@ todoRoutes.route('/add').post(function(req, res) {
 
 app.use('/todos', todoRoutes);
 
+// code needed to use static files
+
 app.listen(PORT, function() {
     console.log("Server is running on Port: " + PORT);
 });
