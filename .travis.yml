@@ -14,16 +14,3 @@ deploy:
     branches: 
       only:
         - travisci
-
-# blocklist
-branches:
-  except:
-  - legacy
-  - experimental
-  - master
-  - stable
-
-# safelist
-branches:
-  only:
-  - travisci 
