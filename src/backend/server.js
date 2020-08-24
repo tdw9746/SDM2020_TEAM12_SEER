@@ -64,6 +64,11 @@ todoRoutes.route('/add').post(function(req, res) {
 
 app.use('/todos', todoRoutes);
 
+app.use(express.static(path.join(__dirname, '../build')))
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../build'))
+})
+
 // code needed to use static files
 
 app.listen(PORT, function() {
