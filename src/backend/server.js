@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const path = require('path')
 
 const todoRoutes = express.Router();
 const PORT = process.env.PORT || 4000;
@@ -64,9 +65,9 @@ todoRoutes.route('/add').post(function(req, res) {
 
 app.use('/todos', todoRoutes);
 
-app.use(express.static(path.join(__dirname, '../build')))
+app.use(express.static(path.join(__dirname, '../../build')))
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../build'))
+    res.sendFile(path.join(__dirname, '../../build'))
 })
 
 // code needed to use static files
