@@ -4,3 +4,24 @@ node_js:
 script:
   - "npm run lint"
   - "npm run test"
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: d04bfd32-71b0-4772-bb15-51866a055e21
+  app: shrouded-wave-72945
+  on:
+    repo: lilo2k/INFS809_SDM_project
+
+# blocklist
+branches:
+  except:
+  - legacy
+  - experimental
+  - master
+  - stable
+
+# safelist
+branches:
+  only:
+  - travisci 
