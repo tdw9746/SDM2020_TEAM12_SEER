@@ -10,4 +10,4 @@ deploy:
   app: shrouded-wave-72945
   on:
     repo: lilo2k/INFS809_SDM_project
-    branch: travisci
+    branch: master
