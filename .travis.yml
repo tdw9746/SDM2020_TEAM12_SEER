@@ -1,18 +1,13 @@
 language: node_js
 node_js:
-  - 12.18.3
+- 12.18.3
 script:
-  - "npm run test"
-
+- npm run test
 deploy:
   provider: heroku
   api_key:
-    secure: d04bfd32-71b0-4772-bb15-51866a055e21
+    secure: U7dYSZhm0XSZp4GbyZV/HzU/YB4CMJvuf4+VByVyztO8nzhcY72w1HcGyNbA+PJQtCpNRGgN3UVfECavb/TbeQLfvbTlRwGcBoRMqrImy4cJMGRc69O3BaxDNhaNb6GIDt4p1S/ZOgevzQywhnRWWqteq+2EckJrBpn1rl27u5m2xFF/3+y39LnEi70b06/+roxIwPMgYSxkCPoR8mJhp5b+ef+XYkU6djAierFBgsrR03GJiWBFvQTrhQqMcshLFJb2iBfCJYIWcpF0XnZb2bI1Y6M+MlDNgQNnA6iu3aTNm+jA/R+QUczvgAaAU3CrIG/l4R7iuz3ivH2Zp6mCdZoAgQKAnFivRa7YIXI+WHl9KNSvzhUeSHetJaVhfVV2HiYpN8n/qT6BbmdQNGqQLsVej5Tehw4ztMxV60QqreDVwv9ba6lsVjYXy87LPdIcJGxhAHwGCk/CZHmMsdeEQmbbhQxRuAPNY3ugLJznbUa6yLsvqpfsKxaba8NRUKnNvM6RjSTYZhv+cezGi4pzq5D/35QQ0JDf7e1EZNZ2ZE+kJFaC7TeFmJo/J6KffDnUmlQ+Ub8CeTf629lk1zGtjfSaLQnwB4BDCFdLgJpmtidVNGusJZpbkwGIWal2LhLNyBFvF92EwzKeYr1sjc4CUGP3mwvq+mqUFUVfc+eqhwI=
   app: shrouded-wave-72945
   on:
     repo: lilo2k/INFS809_SDM_project
     branch: travisci
-
-# branches:
-#   only: 
-#     - travisci
