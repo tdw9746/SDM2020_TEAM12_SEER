@@ -1,18 +1,13 @@
 language: node_js
 node_js:
-  - 12.18.3
+- 12.18.3
 script:
-  - "npm run test"
-
+- npm run test
 deploy:
   provider: heroku
   api_key:
-    secure: "GuIY2vaAYBh/d29lddOxW0dfcMLAEg/smzrmNl7BXCZBFBvFX83rAjOUi3e5n64/zMnBhv/p95Jbl2j46hrMmMOgQoxYDsE+bQUEQWScsK3YTpBC/Z8t3YMdHZIdIyrmurWC3TivnG/RUBp8j6Ke/6Y112CqwZJi1Ri1/CFGxg4bbA/MLRXkB2LGT14IV4UDQFPBr68M9CM/Vn0OMhe7akMLgH0Kf+o2dSIZSGWkVNw8Gkp7KUmITR8oy/34ff9C2aygKtzxYwP1haN2VYVTcWXJf/mKtBRR+WdOH7KGWUULQJM82qxCnuEHcZLzh59KH4KvMMgXh3QIA2FhZJKa6l9XAjqEmlkPDRTCyZVTqX857JQ1vXrsI5YJvooCGLGhDNfWIQi8hrbbRhHyModXfpWqvj8Wy44Y7nQpgGwlJppD63EJ1LokwUhzFmBxF/ehfGPsmt5G2WwPmLY01IhX1qrWIR8eHfkHXp1wP7jZwe/W/CMoXPVreAbrMW5vkyAgIQ9i3moD1lgE3pomlAsiTY44/vBpMXkifjwLKLcj4HocKy+NqxPqdoljFR/mpCGRSNpyj/CTPnkI98bzD7AKbAfzKKsz4JFjbnpD5q2bP8z1l2RGZ4NSezT0hzjqwQqmw9PsJizm2hYB9v3nLG1XbkivrQQmLk4H1GB6RxLl/u8="
+    secure: H08PvzLFxZ6jBwqJuu+fV5de0xEhj1zm5znAVwAOD1u4xmoKqcbMSzAEH55TB8lDf+Nk0Jhs60J9nVNyxKt+ZpQ+RcYzc1upiwJITz96NR6k0n9QAh/ShCacqo2jQ7RdGISPChzviU3vCDsjuKk8oye7sBPRRfCAGE3MYHcjp4kBuNYJP6PT2M1TphvQLHKx1p4bbyAH+KUXOvdYp1KiHGRIWI0bSYsZKRB9HMNl6Mq4/eziLDIPtF8SX+L+jux6Ox12UFB+TUfSkRVOEsgI2ioXgvapvElUKOzy8vMz2Jq4uvtlrVurXk3WLCb6BwJBPCG+OrkU7rC42sLy2PHoJyaJrmpI3o0RmHFdqOHrr9sfx4Vzrhl2zc3Gx4E2O86I8q7luLJC9xwC3V0QKpmjKfjUb4DlCDjAoRrobsy7izPwB+qj3PkLnDznOM3ZRiTwPNbJ43mBKjHqA0ZgcR/yyTOVU9wj/ijEiH5VxfkUN5UbB69En1cRwQb4rjOYd95o+S7rmJW9Up/728MlloIXjZtdC4N5/Ys+ZsR8dcPQoJbVk1ihv9COG+WmLddW8DScy4adMlR787yIan6bdFD01u57vU0zYMMZqRGK7EiFiXfLvqEg/8Zp+kJzKVQQYNLfrpkVF9bXr58gDETHm/JADnAGg5mFo9ffIdY+gV9lSmc=
   app: shrouded-wave-72945
   on:
     repo: lilo2k/INFS809_SDM_project
     branch: travisci
-
-# branches:
-#   only: 
-#     - travisci
