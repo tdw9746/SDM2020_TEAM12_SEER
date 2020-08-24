@@ -28,6 +28,9 @@ class App extends Component {
                 <li className="navbar-item">
                   <Link to="/create" className="nav-link">Create Todo</Link>
                 </li>
+                <li>
+                  Testing area  : seq 1
+                </li>
               </ul>
             </div>
           </nav>
