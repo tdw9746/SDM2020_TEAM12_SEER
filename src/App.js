@@ -29,7 +29,7 @@ class App extends Component {
                   <Link to="/create" className="nav-link">Create Todo</Link>
                 </li>
                 <li>
-                  Testing area  : seq 1
+                  Testing area  : seq 2
                 </li>
               </ul>
             </div>
