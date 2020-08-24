@@ -11,6 +11,9 @@ deploy:
   app: shrouded-wave-72945
   on:
     repo: lilo2k/INFS809_SDM_project
+    branches: 
+      only:
+        - travisci
 
 # blocklist
 branches:
