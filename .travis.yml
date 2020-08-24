@@ -1,0 +1,14 @@
+language: ruby
+cache:
+- node_modules
+before_script:
+- bundle exec rake db:create
+- bundle exec rake db:migrate
+- bundle exec rake assets:precompile
+deploy:
+  provider: heroku
+  api_key:
+    secure: "YOUR ENCRYPTED API KEY"
+  app: rails-test-app-article
+  on:
+    repo: felipeluizsoares/rails-test-app
