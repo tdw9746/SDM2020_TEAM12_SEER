@@ -19,7 +19,7 @@ class App extends Component {
             <a className="navbar-brand" href="https://aut.ac.nz" target="_blank">
               <img src={logo} width="30" height="30" alt="CodingTheSmartWay.com" />
             </a>
-            <Link to="/" className="navbar-brand">SDM project - MERN-Stack Sample/Link>
+            <Link to="/" className="navbar-brand">SDM project - MERN-Stack Sample</Link>
             <div className="collapse navbar-collapse">
               <ul className="navbar-nav mr-auto">
                 <li className="navbar-item">
