@@ -7,7 +7,7 @@ deploy:
   - provider: heroku
     api_key:
       secure: 0+j7p0RLcGaSSNxwtncPnBWGjtmuUpGAnLbbuWqDtAXHyMc6BPYOuZYa6/vkGHtSZW1Fv6OCRmcioIJeql0hKi/7MrOntvPB/Emz4iBR3eumDiozAl2d2TJ30EHzkIdNzNEKt4UpR4dQ+lYz+7FqZqQeFG6XMx68VUkdVh3ipsZE/810Q2GwXhybNBa3qL92mVwfILAu4RX4kueRsJQoQhJmBVxbKYCBZ8PEr87S7zC6WtsjhKga25J461HikmSL4oOwbCVZK05dW+FVQPqUfTwnXA9cP89i34P9ecUYeWpBO1STMlvuoeNveYhvXATHEEKAYB7ivbmIpVDkJIL2R0Mipj71pnFyMb9bfXXHycVxwy4BgQUA7T0xWSgncSbdRX5l8LnUsVEz4Lyou3a/m/jJ9YvFwr/i2f0El5449RNpn/hX8C6n2q9VYnQIXf6YCSPITG4xLimGfiO702kPvQzT1nr3RU6MQb9qS0UCCLJn5a98KVZW4CjUHnl7J68BvEiT3R7CLz1SrOdN1EfElLMzGdwBDrmraimG5pUA9YcytHMOTM6RVqukF7BFhlJO8z8zQUP8b1G2RNvWluH0q1u/y9MAttCgQsYRlyV/sSrhm7KLPVnwweSSz4afXLEpfKxKsmDIDzUX/kHLwbnmpQaW+YSfqhSwuE6p/4zmolI=
-    app: aut-sdm-project-team-4
+    app: sdm2020-team4-seer-dev
     on:
       repo: lilo2k/SDM2020_Team4_SEER
       branch: dev
