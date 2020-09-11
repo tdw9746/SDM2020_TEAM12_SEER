@@ -10,4 +10,4 @@ deploy:
   app: aut-sdm-project-team-4
   on:
     repo: lilo2k/SDM2020_Team4_SEER
-    branch: master
+    branch: dev
