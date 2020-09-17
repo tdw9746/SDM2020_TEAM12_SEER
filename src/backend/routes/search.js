@@ -45,4 +45,11 @@ router.post('/', (req,res,next) => {
     }
 });
 
+// delete
+router.delete('/:id', (req, res, next) => {
+    SeerArticle.findOneAndDelete({"_id": req.params.id})
+        .then(data => res.json(data))
+        .catch(next)
+})
+
 module.exports = router;

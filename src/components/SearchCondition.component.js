@@ -30,11 +30,17 @@ class Input extends Component {
     })
   }
 
+  handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      this.searchSeerArticle();
+    }
+  }
+
   render() {
     let { title } = this.state;
     return (
       <div>
-        <input type="text" onChange={this.handleChange} value={title} />
+        <input type="text" onChange={this.handleChange} onKeyDown={this.handleKeyDown} value={title} />
         <button onClick={this.searchSeerArticle}>Search</button>
       </div>
     )
