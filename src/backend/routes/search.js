@@ -7,7 +7,7 @@ const SeerArticle = require('../models/SeerArticle.model');
 router.use((req, res, next) => {
     console.log('Router level - all search', req.method, req.originalUrl, Date.now());
     next();
-})
+});
 
 // List all
 router.get('/', (req, res, next) => {
@@ -50,6 +50,6 @@ router.delete('/:id', (req, res, next) => {
     SeerArticle.findOneAndDelete({"_id": req.params.id})
         .then(data => res.json(data))
         .catch(next)
-})
+});
 
 module.exports = router;
