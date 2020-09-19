@@ -7,7 +7,7 @@ class Input extends Component {
   };
 
   searchSeerArticle = () => {
-    const task = { title: this.state.title, author: this.state.author };
+    const task = { title: this.state.title, SEmethods: this.state.SEmethods };
 
     // if(task.title && task.title.length > 0){
     axios
@@ -15,7 +15,7 @@ class Input extends Component {
       .then((res) => {
         if (res.data) {
           this.props.showSeerArticleList(res.data);
-          this.setState({ title: "", author: "" });
+          this.setState({ title: "", SEmethods: "" });
         }
       })
       .catch((err) => console.log(err));
@@ -29,9 +29,9 @@ class Input extends Component {
       title: e.target.value,
     });
   };
-  handleAuthorChange = (e) => {
+  handleSEmethodsChange = (e) => {
     this.setState({
-      author: e.target.value,
+      SEmethods: e.target.value,
     });
   };
 
@@ -43,7 +43,7 @@ class Input extends Component {
 
   render() {
     let { title } = this.state;
-    let { author } = this.state;
+    let { SEmethods } = this.state;
     return (
       <div class="search">
         <input
@@ -57,10 +57,10 @@ class Input extends Component {
         <input
           class="search_input"
           type="text"
-          onChange={this.handleAuthorChange}
+          onChange={this.handleSEmethodsChange}
           onKeyDown={this.handleKeyDown}
-          value={author}
-          placeholder="Author"
+          value={SEmethods}
+          placeholder="SE methods"
         />
         <button onClick={this.searchSeerArticle}>Search</button>
       </div>

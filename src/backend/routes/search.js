@@ -32,12 +32,12 @@ router.get("/", (req, res, next) => {
 router.post("/filter", (req, res, next) => {
   // console.log("req.body:" + req.body.task);
   console.log("req.body:" + req.body.title);
-  console.log("req.body:" + req.body.author);
+  console.log("req.body:" + req.body.SEmethods);
 
   SeerArticle.find(
     {
       title: { $regex: req.body.title, $options: "i" },
-      author: { $regex: req.body.author, $options: "i" },
+      SEmethods: { $regex: req.body.SEmethods, $options: "i" },
     },
     "title"
   )
