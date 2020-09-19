@@ -18,3 +18,7 @@ deploy:
     on:
       repo: lilo2k/SDM2020_Team4_SEER
       branch: release
+branches:
+  only:
+    - master
+    - dev
