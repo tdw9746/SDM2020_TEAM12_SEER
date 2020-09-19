@@ -4,6 +4,7 @@ const ListSeerArticle = ({ seerArticles }) => {
 
   return (
     <ul>
+      <lh>Title | Author | Method</lh>
       {
         seerArticles &&
           seerArticles.length > 0 ?
