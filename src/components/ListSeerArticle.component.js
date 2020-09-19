@@ -10,7 +10,7 @@ const ListSeerArticle = ({ seerArticles }) => {
             (
               seerArticles.map(seerArticle => {
                 return (
-                  <li key={seerArticle._id} >{seerArticle.title}</li>
+                  <li key={seerArticle._id} >{seerArticle.title} | {seerArticle.author} | {seerArticle.method}</li>
                 )
               })
             )

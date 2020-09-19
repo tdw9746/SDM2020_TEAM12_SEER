@@ -16,6 +16,12 @@ let SeerArticle = new Schema({
     },
     date: {
         type: Date
+    },
+    author: {
+        type: String
+    },
+    Method: {
+        type: String
     }
 });
 

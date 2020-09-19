@@ -18,31 +18,30 @@ router.use((req, res, next) => {
 router.get("/", (req, res, next) => {
   // let newSeerArticle = new SeerArticle({"title":"test_title", "URL":"http://google.com", "status": "queued", "date": Date.now() })
   // newSeerArticle.save();
-  console.log(res);
-  SeerArticle.find({}, "title")
-    .then((data) => {
-      res.json(data);
-      console.log(data);
-      console.log(res);
-    })
-    .catch(next);
-});
+  // console.log(res);
+  // SeerArticle.find({})
+  //   .then((data) => {
+  //     res.json(data);
+  //     console.log(data);
+  //     console.log(res);
+  //   })
+    // .catch(next);
+    seerSearch("", "", "", res, next);
+  });
 
 // search by title
 router.post("/filter", (req, res, next) => {
   // console.log("req.body:" + req.body.task);
-  console.log("req.body:" + req.body.title);
-  console.log("req.body:" + req.body.SEmethods);
+  console.log("req.body.title:" + req.body.title);
+  console.log("req.body.author:" + req.body.author);
+  console.log("req.body.method:" + req.body.method);
 
-  SeerArticle.find(
-    {
-      title: { $regex: req.body.title, $options: "i" },
-      SEmethods: { $regex: req.body.SEmethods, $options: "i" },
-    },
-    "title"
-  )
-    .then((data) => res.json(data))
-    .catch(next);
+  let title = req.body.title;
+  let author = req.body.author;
+  let method = req.body.method;
+  // if(title == '') { title = '*.*'};
+  // if(method == '') { method = '*.*'};
+  seerSearch(title, author, method, res, next);
 });
 
 // create
@@ -70,3 +69,15 @@ router.delete("/:id", (req, res, next) => {
 });
 
 module.exports = router;
+function seerSearch(title, author, method, res, next) {
+  SeerArticle.find(
+    {
+      title: { $regex: title, $options: "i" },
+      author: { $regex: author, $options: "i" },
+      method: { $regex: method, $options: "i" },
+    }
+  )
+    .then((data) => res.json(data))
+    .catch(next);
+}
+
