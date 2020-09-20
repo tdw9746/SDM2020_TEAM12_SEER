@@ -70,14 +70,18 @@ router.delete("/:id", (req, res, next) => {
 
 module.exports = router;
 function seerSearch(title, author, method, res, next) {
-  SeerArticle.find(
+  seerSearchJson(title, author, method)
+    .then((data) => res.json(data))
+    .catch(next);
+}
+
+function seerSearchJson(title, author, method) {
+  return SeerArticle.find(
     {
       title: { $regex: title, $options: "i" },
       author: { $regex: author, $options: "i" },
       method: { $regex: method, $options: "i" },
     }
-  )
-    .then((data) => res.json(data))
-    .catch(next);
+  );
 }
 
