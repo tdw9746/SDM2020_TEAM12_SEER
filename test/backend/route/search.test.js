@@ -1,4 +1,4 @@
-const searchRoute = require("../../../src/backend/routes/search");
+const searchRoute = require("../../../src/backend/routes/search.route");
 
 var assert = require('assert');
 
