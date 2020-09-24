@@ -20,7 +20,7 @@ let SeerArticle = new Schema({
     author: {
         type: String
     },
-    method: {
+    SEmethods: {
         type: String
     }
 });
