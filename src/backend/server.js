@@ -12,7 +12,7 @@ require('./database');
 let Todo = require('./todo.model');
 
 // Routing
-const search = require('./routes/search');
+const search = require('./routes/search.route');
 
 
 app.use(cors());
