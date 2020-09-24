@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
 
-
-
 if (process.env.CON == undefined) {
     console.log('No environment value for MongoDB connection string found');
     require('dotenv').config();
