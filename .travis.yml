@@ -19,7 +19,3 @@ deploy:
     on:
       repo: lilo2k/SDM2020_TOMMY_SEER
       branch: release
-branches:
-  only:
-  - dev
-  - release
