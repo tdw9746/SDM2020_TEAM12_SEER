@@ -80,7 +80,7 @@ function seerSearchJson(title, author, method) {
     {
       title: { $regex: title, $options: "i" },
       author: { $regex: author, $options: "i" },
-      method: { $regex: method, $options: "i" },
+      SEmethods: { $regex: method, $options: "i" },
     }
   );
 }
