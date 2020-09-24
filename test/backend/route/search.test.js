@@ -4,7 +4,7 @@ var assert = require('assert');
 
 describe('Test Suite 1', function() {
     it('Test 1', function() {
-        let jsonReturn =   searchRoute.seerSearchJson("title", "author", "method") ;
+        // let jsonReturn =   searchRoute.seerSearchJson("title", "author", "method") ;
         /*
         {
             {"title":}
