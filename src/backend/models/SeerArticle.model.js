@@ -5,24 +5,13 @@ let SeerArticle = new Schema({
     // id: {
     //     type: Number
     // },
-    title: {
-        type: String
-    },
-    URL: {
-        type: String
-    },
-    status: {
-        type: String
-    },
-    date: {
-        type: Date
-    },
-    author: {
-        type: String
-    },
-    SEmethods: {
-        type: String
-    }
+    title: String,
+    URL: String,
+    status: String,
+    date: Date,
+    author: String,
+    SEmethods: String,
+    claims: [String]
 });
 
 module.exports = mongoose.model('SeerArticle', SeerArticle);
