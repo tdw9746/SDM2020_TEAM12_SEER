@@ -12,11 +12,11 @@ class Input extends Component {
     title: "",
     author: "",
     method: "",
-    claim: "",
+    claim: [],
   };
 
   searchSeerArticle = () => {
-    const task = { title: this.state.title, author: this.state.author, method: this.state.method };
+    const task = { title: this.state.title, author: this.state.author, method: this.state.method, claim: this.state.claim };
 
     // if(task.title && task.title.length > 0){
     axios
@@ -24,7 +24,7 @@ class Input extends Component {
       .then((res) => {
         if (res.data) {
           this.props.showSeerArticleList(res.data);
-          this.setState({ title: "", author:"", method: "" });
+          this.setState({ title: "", author:"", method: "", claim: [] });
         }
       })
       .catch((err) => console.log(err));
@@ -57,7 +57,7 @@ class Input extends Component {
 
   handleClaimSelect = (e)=> {
     this.setState({
-      claim: e.target.values,
+      claim: e.target.value,
     });
   }
 
@@ -65,11 +65,12 @@ class Input extends Component {
     let { title } = this.state;
     let { author } = this.state;
     // let { method } = this.state;
-    // let { claim } = this.state;
+    let { claim } = this.state;
     return (
       <div class="search">
-        {/* <Select options={options} onChange={(values) => this.setValues(values)} /> */}
-        <Select multi options={options} values={[]} onChange={(value) => console.log(value)} />
+        <Select multi options={options} values={claim} onChange={(value) => console.log(value)} placeholder="Claims"/>
+        {/* <Select multi options={options} values={claim} onChange={this.handleClaimSelect} placeholder="Claims"/> */}
+        <br/>
         <input
           class="search_input"
           type="text"
