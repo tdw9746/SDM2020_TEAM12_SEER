@@ -10,7 +10,7 @@ let SeerArticle = new Schema({
     status: String,
     date: Date,
     author: String,
-    SEmethods: String,
+    method: String,
     claims: [String]
 });
 

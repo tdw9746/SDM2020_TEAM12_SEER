@@ -55,22 +55,28 @@ class Input extends Component {
     }
   };
 
-  handleClaimSelect = (e)=> {
+  handleClaimSelect = (values)=> {
     this.setState({
-      claim: e.target.value,
+      claim: values
     });
   }
 
   render() {
     let { title } = this.state;
     let { author } = this.state;
-    // let { method } = this.state;
+    let { method } = this.state;
     let { claim } = this.state;
     return (
       <div class="search">
-        <Select multi options={options} values={claim} onChange={(value) => console.log(value)} placeholder="Claims"/>
-        {/* <Select multi options={options} values={claim} onChange={this.handleClaimSelect} placeholder="Claims"/> */}
-        <br/>
+        <table>
+      <tr>
+
+        {/* <Select multi options={options} values={claim} onChange={(value) => console.log(value)} placeholder="Claims"/> */}
+        <Select multi options={options} values={claim} onChange={(values) => this.handleClaimSelect(values)} placeholder="Claims"/>
+      </tr>
+      <tr>
+
+
         <input
           class="search_input"
           type="text"
@@ -78,7 +84,7 @@ class Input extends Component {
           onKeyDown={this.handleKeyDown}
           value={title}
           placeholder="Title"
-        />
+          />
         <input
           class="search_input"
           type="text"
@@ -86,16 +92,18 @@ class Input extends Component {
           onKeyDown={this.handleKeyDown}
           value={author}
           placeholder="Author"
-        />
-        {/* <input
+          />
+        <input
           class="search_input"
           type="text"
           onChange={this.handleMethodChange}
           onKeyDown={this.handleKeyDown}
           value={method}
           placeholder="SE methods"
-        /> */}
+          />
         <button onClick={this.searchSeerArticle}>Search</button>
+          </tr>
+            </table>
       </div>
     );
   }

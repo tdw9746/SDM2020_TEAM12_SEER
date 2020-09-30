@@ -26,7 +26,7 @@ router.get("/", (req, res, next) => {
   //     console.log(res);
   //   })
     // .catch(next);
-    seerSearch("", "", "", res, next);
+    seerSearch("", "", "", [], res, next);
   });
 
 // search by title
@@ -35,13 +35,15 @@ router.post("/filter", (req, res, next) => {
   console.log("req.body.title:" + req.body.title);
   console.log("req.body.author:" + req.body.author);
   console.log("req.body.method:" + req.body.method);
+  console.log("req.body.method:" + req.body.claim);
 
   let title = req.body.title;
   let author = req.body.author;
   let method = req.body.method;
+  let claim = req.body.claim;
   // if(title == '') { title = '*.*'};
   // if(method == '') { method = '*.*'};
-  seerSearch(title, author, method, res, next);
+  seerSearch(title, author, method, claim, res, next);
 });
 
 // create
@@ -69,18 +71,19 @@ router.delete("/:id", (req, res, next) => {
 });
 
 module.exports = router;
-function seerSearch(title, author, method, res, next) {
-  seerSearchJson(title, author, method)
+function seerSearch(title, author, method, claim, res, next) {
+  seerSearchJson(title, author, method, claim)
     .then((data) => res.json(data))
     .catch(next);
 }
 
-function seerSearchJson(title, author, method) {
+function seerSearchJson(title, author, method, claim) {
   return SeerArticle.find(
     {
       title: { $regex: title, $options: "i" },
       author: { $regex: author, $options: "i" },
-      SEmethods: { $regex: method, $options: "i" },
+      method: { $regex: method, $options: "i" },
+      claim: { $regex: claim, $options: "i" },
     }
   );
 }
