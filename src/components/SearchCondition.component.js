@@ -45,7 +45,7 @@ class SearchCondition extends Component {
     author: "",
     fromYear: year,
     toYear: year,
-    method: "",
+    method: "TDD",
     claim: [],
   };
 
@@ -58,7 +58,7 @@ class SearchCondition extends Component {
       .then((res) => {
         if (res.data) {
           this.props.showSeerArticleList(res.data);
-          this.setState({ title: "", author: "", fromYear: year, toYear:year, method: "", claim: [] });
+          this.setState({ title: "", author: "", fromYear: year, toYear:year, method: "TDD", claim: [] });
         }
       })
       .catch((err) => console.log(err));
