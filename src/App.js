@@ -13,6 +13,7 @@ const App = () => {
         <Icon name='lab' />
         <Header.Content>Software Engineering Evidence Repository(SEER)</Header.Content>
       </Header>
+      <br/>
       <Search />
     </div>
   );

@@ -111,6 +111,10 @@ class SearchCondition extends Component {
           <Grid.Column>
             To: <Dropdown placeholder='To' selection options={yearOptions} />
           </Grid.Column>
+          <Grid.Column>
+            <Button onClick={this.searchSeerArticle}>Search</Button>
+
+          </Grid.Column>
         </Grid.Row>
         <Grid.Row>
           <Grid.Column>
@@ -125,7 +129,6 @@ class SearchCondition extends Component {
             {/* <Select multi options={options} values={claim} onChange={(values) => this.handleClaimSelect(values)} placeholder="Claims"/> */}
           </Grid.Column>
           <Grid.Column>
-            <Button onClick={this.searchSeerArticle}>Search</Button>
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>
