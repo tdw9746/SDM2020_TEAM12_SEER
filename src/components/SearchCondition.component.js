@@ -14,11 +14,7 @@ import {
 } from 'semantic-ui-react'
 
 const year = (new Date()).getFullYear();
-const years = Array.from(new Array(40),( val, index) => year - index);
-
-// this.years.map((year, index) => {
-//   return <option key={`year${index}`} value={year}>{year}</option>
-// })
+const years = Array.from(new Array(70), (val, index) => year - index);
 
 const yearOptions = _.map(years, (year, index) => ({
   key: year,
@@ -26,17 +22,17 @@ const yearOptions = _.map(years, (year, index) => ({
   value: year,
 }));
 
-const options = [
-  { key: 'performance', text: 'Improve Performance', value: 'performance' },
-  { key: 'security', text: 'Improve security', value: 'Security' },
-  { key: 'codeQuality', text: 'Improve Code Quality', value: 'codeQuality' },
-  { key: 'productQuality', text: 'Improve Product Quality', value: 'productQuality' },
+const claimOptions = [
+  { key: 'performance', text: 'Improve Performance', value: 'Improve Performance' },
+  { key: 'security', text: 'Improve Security', value: 'Improve Security' },
+  { key: 'codeQuality', text: 'Improve Code Quality', value: 'Improve Code Quality' },
+  { key: 'productQuality', text: 'Improve Product Quality', value: 'Improve Product Quality' },
 ];
 
 const practiceOptions = [
-  { key: 'tdd', text: 'TDD', value: 'tdd' },
-  { key: 'ddd', text: 'DDD', value: 'ddd' },
-  { key: 'udd', text: 'UDD', value: 'udd' },
+  { key: 'TDD', text: 'TDD', value: 'TDD' },
+  { key: 'DDD', text: 'DDD', value: 'DDD' },
+  { key: 'UDD', text: 'UDD', value: 'UDD' },
 ]
 
 // const DropdownMultipleSelection = () => (
@@ -47,20 +43,22 @@ class SearchCondition extends Component {
   state = {
     title: "",
     author: "",
+    fromYear: year,
+    toYear: year,
     method: "",
     claim: [],
   };
 
   searchSeerArticle = () => {
-    const task = { title: this.state.title, author: this.state.author, method: this.state.method, claim: this.state.claim };
-
+    const task = { title: this.state.title, author: this.state.author, fromYear: this.state.fromYear, toYear: this.state.toYear, method: this.state.method, claim: this.state.claim };
+    console.log(task);
     // if(task.title && task.title.length > 0){
     axios
       .post("/search/filter", task)
       .then((res) => {
         if (res.data) {
           this.props.showSeerArticleList(res.data);
-          this.setState({ title: "", author: "", method: "", claim: [] });
+          this.setState({ title: "", author: "", fromYear: year, toYear:year, method: "", claim: [] });
         }
       })
       .catch((err) => console.log(err));
@@ -79,37 +77,52 @@ class SearchCondition extends Component {
       author: e.target.value,
     });
   };
-  handleMethodChange = (e) => {
+  handleMethodChange = (e, {value}) => {
+    console.log(value);
     this.setState({
-      method: e.target.value,
+      method: value,
     });
   };
-
+  
   handleKeyDown = (e) => {
     if (e.key === "Enter") {
       this.searchSeerArticle();
     }
   };
-
-  handleClaimSelect = (values) => {
+  
+  handleFromYear = (e) => {
     this.setState({
-      claim: values
+      fromYear: e.target.value
+    });
+  }
+  handleToYear = (e) => {
+    this.setState({
+      toYear: e.target.value
+    });
+    
+  }
+  handleClaimSelect = (e, {value}) => {
+    console.log(value);
+    this.setState({
+      claim: value
     });
   }
 
   render() {
     let { title } = this.state;
     let { author } = this.state;
+    let { fromYear } = this.state;
+    let { toYear } = this.state;
     let { method } = this.state;
     let { claim } = this.state;
     return (
       <Grid columns={3} divided>
         <Grid.Row>
           <Grid.Column>
-            From: <Dropdown placeholder='From' selection options={yearOptions} />
+            From: <Dropdown placeholder='From' selection options={yearOptions} value={fromYear} onChange={this.handleFromYear}/>
           </Grid.Column>
           <Grid.Column>
-            To: <Dropdown placeholder='To' selection options={yearOptions} />
+            To: <Dropdown placeholder='To' selection options={yearOptions} value={toYear} onChange={this.handleToYear}/>
           </Grid.Column>
           <Grid.Column>
             <Button onClick={this.searchSeerArticle}>Search</Button>
@@ -121,10 +134,10 @@ class SearchCondition extends Component {
             {/* <div class="search"> */}
 
             {/* <DropdownMultipleSelection/> */}
-            <Dropdown placeholder='SE practice' selection options={practiceOptions} />
+            <Dropdown placeholder='SE practice' selection options={practiceOptions} value={method} onChange={this.handleMethodChange} />
           </Grid.Column>
           <Grid.Column>
-            <Dropdown placeholder='Claims' fluid multiple selection options={options} />
+            <Dropdown placeholder='Claims' fluid multiple selection options={claimOptions} value={claim} onChange={this.handleClaimSelect} />
             {/* <Select multi options={options} values={claim} onChange={(value) => console.log(value)} placeholder="Claims"/> */}
             {/* <Select multi options={options} values={claim} onChange={(values) => this.handleClaimSelect(values)} placeholder="Claims"/> */}
           </Grid.Column>
