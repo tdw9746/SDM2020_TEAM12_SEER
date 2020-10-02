@@ -7,14 +7,14 @@ deploy:
   - provider: heroku
     api_key:
       secure: DJKKt8F7XH7fM0rN6ihtUOLVVXM8fas3GS+2iGClHg0u3s+o5azXPWEunvTFWcfDe/wDg4/YNMYrv5auB3MmWhABtsdDC8zYAKQbCnk+ytTLn/db4YdVNGmhOuYhKK1WV3b56p7i4ax9bzkCVG0Ebr2ABMwGe7wztxHyXGyRnIY9359UAu1iN7OVlOBI7GEj51LpHkRKVKOQdgPbsvBo/R/P/uwN/h0nqnSy0yWCdV0xv5jaLWro+qVqf8sxffJttAsSo2I2u29d0VFJ90B+ZZ//ZI3xkuL0GMgIZ5kWzIDD0IUEEpiqxAdk0JlcMu6Um4bY3mXWdnsKOVRtmp6FQFCrfUvG4WnIgqlR6UbgK/Qtp3cLkETDejp5mQNhDHa8mZ02nxHza0MNV5+0rfG0ZelPSk53ZKuaGLof3jfrZzaBZrmL4dZVtlB4jafYsCDz/Jb2ug2jrWlOUu+FqQhoyaNp4NcDiMOLiSPPr6BaFKric0EUCpKrf7DyEvmJnrd800X/IMDdc1NPQUIHVSl8P+65Hokq8iJPbF8GrQTJW0ulcIL28EbYTmnQedBeiCdcIFPQQPgtmFljMCxrCj/Y3F/1fSgYYdwSfR1LyVg9FI0OF9WXX7QTm2M2blU6GA8cjCd+YzWj/SZjK4WGQgouzXtO66kgoq1x2+Hvuy4dgpM=
-    app: sdm2020-tommy-seer-dev
+    app: sdm2020-team12-seer-dev
     on:
       repo: lilo2k/SDM2020_TOMMY_SEER
       branch: dev
   - provider: heroku
     api_key:
       secure: DJKKt8F7XH7fM0rN6ihtUOLVVXM8fas3GS+2iGClHg0u3s+o5azXPWEunvTFWcfDe/wDg4/YNMYrv5auB3MmWhABtsdDC8zYAKQbCnk+ytTLn/db4YdVNGmhOuYhKK1WV3b56p7i4ax9bzkCVG0Ebr2ABMwGe7wztxHyXGyRnIY9359UAu1iN7OVlOBI7GEj51LpHkRKVKOQdgPbsvBo/R/P/uwN/h0nqnSy0yWCdV0xv5jaLWro+qVqf8sxffJttAsSo2I2u29d0VFJ90B+ZZ//ZI3xkuL0GMgIZ5kWzIDD0IUEEpiqxAdk0JlcMu6Um4bY3mXWdnsKOVRtmp6FQFCrfUvG4WnIgqlR6UbgK/Qtp3cLkETDejp5mQNhDHa8mZ02nxHza0MNV5+0rfG0ZelPSk53ZKuaGLof3jfrZzaBZrmL4dZVtlB4jafYsCDz/Jb2ug2jrWlOUu+FqQhoyaNp4NcDiMOLiSPPr6BaFKric0EUCpKrf7DyEvmJnrd800X/IMDdc1NPQUIHVSl8P+65Hokq8iJPbF8GrQTJW0ulcIL28EbYTmnQedBeiCdcIFPQQPgtmFljMCxrCj/Y3F/1fSgYYdwSfR1LyVg9FI0OF9WXX7QTm2M2blU6GA8cjCd+YzWj/SZjK4WGQgouzXtO66kgoq1x2+Hvuy4dgpM=
-    app: sdm2020-tommy-seer-release
+    app: sdm2020-team12-seer-release
     on:
       repo: lilo2k/SDM2020_TOMMY_SEER
       branch: release
