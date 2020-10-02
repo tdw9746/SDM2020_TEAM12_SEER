@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
+import _ from 'lodash'
+
+// import faker from 'faker';
 
 // import DropdownMultipleSelection from './DropdownMultipleSelection.component';
 
@@ -10,11 +13,24 @@ import {
   Button
 } from 'semantic-ui-react'
 
+const year = (new Date()).getFullYear();
+const years = Array.from(new Array(40),( val, index) => year - index);
+
+// this.years.map((year, index) => {
+//   return <option key={`year${index}`} value={year}>{year}</option>
+// })
+
+const yearOptions = _.map(years, (year, index) => ({
+  key: year,
+  text: year,
+  value: year,
+}));
+
 const options = [
-  { key: 'performance', text: 'Performance', value: 'performance' },
-  { key: 'security', text: 'Security', value: 'Security' },
-  { key: 'codeQuality', text: 'Code Quality', value: 'codeQuality' },
-  { key: 'productQuality', text: 'Product Quality', value: 'productQuality' },
+  { key: 'performance', text: 'Improve Performance', value: 'performance' },
+  { key: 'security', text: 'Improve security', value: 'Security' },
+  { key: 'codeQuality', text: 'Improve Code Quality', value: 'codeQuality' },
+  { key: 'productQuality', text: 'Improve Product Quality', value: 'productQuality' },
 ];
 
 const practiceOptions = [
@@ -88,6 +104,14 @@ class SearchCondition extends Component {
     let { claim } = this.state;
     return (
       <Grid columns={3} divided>
+        <Grid.Row>
+          <Grid.Column>
+            From: <Dropdown placeholder='From' selection options={yearOptions} />
+          </Grid.Column>
+          <Grid.Column>
+            To: <Dropdown placeholder='To' selection options={yearOptions} />
+          </Grid.Column>
+        </Grid.Row>
         <Grid.Row>
           <Grid.Column>
             {/* <div class="search"> */}
