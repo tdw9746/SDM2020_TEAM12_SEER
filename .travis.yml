@@ -6,19 +6,19 @@ script:
 deploy:
   - provider: heroku
     api_key:
-      secure: DJKKt8F7XH7fM0rN6ihtUOLVVXM8fas3GS+2iGClHg0u3s+o5azXPWEunvTFWcfDe/wDg4/YNMYrv5auB3MmWhABtsdDC8zYAKQbCnk+ytTLn/db4YdVNGmhOuYhKK1WV3b56p7i4ax9bzkCVG0Ebr2ABMwGe7wztxHyXGyRnIY9359UAu1iN7OVlOBI7GEj51LpHkRKVKOQdgPbsvBo/R/P/uwN/h0nqnSy0yWCdV0xv5jaLWro+qVqf8sxffJttAsSo2I2u29d0VFJ90B+ZZ//ZI3xkuL0GMgIZ5kWzIDD0IUEEpiqxAdk0JlcMu6Um4bY3mXWdnsKOVRtmp6FQFCrfUvG4WnIgqlR6UbgK/Qtp3cLkETDejp5mQNhDHa8mZ02nxHza0MNV5+0rfG0ZelPSk53ZKuaGLof3jfrZzaBZrmL4dZVtlB4jafYsCDz/Jb2ug2jrWlOUu+FqQhoyaNp4NcDiMOLiSPPr6BaFKric0EUCpKrf7DyEvmJnrd800X/IMDdc1NPQUIHVSl8P+65Hokq8iJPbF8GrQTJW0ulcIL28EbYTmnQedBeiCdcIFPQQPgtmFljMCxrCj/Y3F/1fSgYYdwSfR1LyVg9FI0OF9WXX7QTm2M2blU6GA8cjCd+YzWj/SZjK4WGQgouzXtO66kgoq1x2+Hvuy4dgpM=
-    app: sdm2020-tommy-seer-dev
+      secure: XqWpj2UgsJ0f1xpNNffIcGPl/C2RAIOLlv+TlZu1IYpfamwNMPkBg+kOSI16C5ut8ejL2dnbMippFXbbNaLQbY8Uic3VUHszEwnsBuiHY/lxhAsmXD4oxaDJb7+VNkqrB7qfiU6pVejIDXCBjoIQSW5JvNV8/JvN2INYIOyNf/9JvxMWrS19WfzmEFA5Xya8+ws960CjCxGarY4A0NKu8xYIJ/pKsPpWyQNeYHcBHoCay3+pQCJDfst0VLYd6gtv2tD6HE8mvvpK2HrnpP3gw8pY+bpIv8vt65+9YO7lFDsvkp4MglYCKuMpPbwwAWjF9FuMUf2gyvC5+9ekOotPP73JxICcATS8Vrz8Nq4nZ66VWVOSYIjxWILZ+FfzhUcGdyS2V2ToUI/a32M3XHvoZL7SEFQPCaOsaASO3U03yGyk2qWggOHjAGITQJ7EyOdHjKvOrjr1O3v0es9REsLg9QqWf0vgKRJXKImKt0nw5a4bXYyCcQc1gdcXVNWXOMqf7+QcfsG0rsQiSK8unqtplUr6F8Th6i7fesSrO4b9nKmoGQqF8R0CUM339E2B4LPUtsiK+VlSoNSKUBjx6DRQIAhxXE5yrKhDj7L0DvPYAJHqdWKaF3ZneQCPoeNurkt3bTbBAULvxG3LoCUbCjaQxsm8Hlku0Vkbw0t5+c0o/is=
+    app: sdm2020-team12-seer-dev
     on:
-      repo: lilo2k/SDM2020_TOMMY_SEER
+      repo: tdw9746/SDM2020_TEAM12_SEER
       branch: dev
   - provider: heroku
     api_key:
-      secure: DJKKt8F7XH7fM0rN6ihtUOLVVXM8fas3GS+2iGClHg0u3s+o5azXPWEunvTFWcfDe/wDg4/YNMYrv5auB3MmWhABtsdDC8zYAKQbCnk+ytTLn/db4YdVNGmhOuYhKK1WV3b56p7i4ax9bzkCVG0Ebr2ABMwGe7wztxHyXGyRnIY9359UAu1iN7OVlOBI7GEj51LpHkRKVKOQdgPbsvBo/R/P/uwN/h0nqnSy0yWCdV0xv5jaLWro+qVqf8sxffJttAsSo2I2u29d0VFJ90B+ZZ//ZI3xkuL0GMgIZ5kWzIDD0IUEEpiqxAdk0JlcMu6Um4bY3mXWdnsKOVRtmp6FQFCrfUvG4WnIgqlR6UbgK/Qtp3cLkETDejp5mQNhDHa8mZ02nxHza0MNV5+0rfG0ZelPSk53ZKuaGLof3jfrZzaBZrmL4dZVtlB4jafYsCDz/Jb2ug2jrWlOUu+FqQhoyaNp4NcDiMOLiSPPr6BaFKric0EUCpKrf7DyEvmJnrd800X/IMDdc1NPQUIHVSl8P+65Hokq8iJPbF8GrQTJW0ulcIL28EbYTmnQedBeiCdcIFPQQPgtmFljMCxrCj/Y3F/1fSgYYdwSfR1LyVg9FI0OF9WXX7QTm2M2blU6GA8cjCd+YzWj/SZjK4WGQgouzXtO66kgoq1x2+Hvuy4dgpM=
-    app: sdm2020-tommy-seer-release
+      secure: XqWpj2UgsJ0f1xpNNffIcGPl/C2RAIOLlv+TlZu1IYpfamwNMPkBg+kOSI16C5ut8ejL2dnbMippFXbbNaLQbY8Uic3VUHszEwnsBuiHY/lxhAsmXD4oxaDJb7+VNkqrB7qfiU6pVejIDXCBjoIQSW5JvNV8/JvN2INYIOyNf/9JvxMWrS19WfzmEFA5Xya8+ws960CjCxGarY4A0NKu8xYIJ/pKsPpWyQNeYHcBHoCay3+pQCJDfst0VLYd6gtv2tD6HE8mvvpK2HrnpP3gw8pY+bpIv8vt65+9YO7lFDsvkp4MglYCKuMpPbwwAWjF9FuMUf2gyvC5+9ekOotPP73JxICcATS8Vrz8Nq4nZ66VWVOSYIjxWILZ+FfzhUcGdyS2V2ToUI/a32M3XHvoZL7SEFQPCaOsaASO3U03yGyk2qWggOHjAGITQJ7EyOdHjKvOrjr1O3v0es9REsLg9QqWf0vgKRJXKImKt0nw5a4bXYyCcQc1gdcXVNWXOMqf7+QcfsG0rsQiSK8unqtplUr6F8Th6i7fesSrO4b9nKmoGQqF8R0CUM339E2B4LPUtsiK+VlSoNSKUBjx6DRQIAhxXE5yrKhDj7L0DvPYAJHqdWKaF3ZneQCPoeNurkt3bTbBAULvxG3LoCUbCjaQxsm8Hlku0Vkbw0t5+c0o/is=
+    app: sdm2020-team12-seer-release
     on:
-      repo: lilo2k/SDM2020_TOMMY_SEER
+      repo: tdw9746/SDM2020_TEAM12_SEER
       branch: release
 branches:
   only:
-    - release
-    - dev
+  - release
+  - dev
