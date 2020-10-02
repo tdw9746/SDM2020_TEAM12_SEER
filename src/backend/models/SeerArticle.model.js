@@ -11,7 +11,8 @@ let SeerArticle = new Schema({
     date: Date,
     author: String,
     method: String,
-    claims: [String]
+    claims: [String],
+    year: Number,
 });
 
 module.exports = mongoose.model('SeerArticle', SeerArticle);

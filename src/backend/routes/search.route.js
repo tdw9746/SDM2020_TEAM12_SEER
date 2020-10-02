@@ -29,7 +29,7 @@ router.get("/", (req, res, next) => {
     seerSearch("", "", "", [], res, next);
   });
 
-// search by title
+// search 
 router.post("/filter", (req, res, next) => {
   // console.log("req.body:" + req.body.task);
   console.log("req.body.title:" + req.body.title);
@@ -70,21 +70,21 @@ router.delete("/:id", (req, res, next) => {
     .catch(next);
 });
 
-module.exports = router;
 function seerSearch(title, author, method, claim, res, next) {
   seerSearchJson(title, author, method, claim)
     .then((data) => res.json(data))
     .catch(next);
-}
-
-function seerSearchJson(title, author, method, claim) {
+  }
+  
+function seerSearchJson(title, author, method, claims) {
   return SeerArticle.find(
     {
       title: { $regex: title, $options: "i" },
       author: { $regex: author, $options: "i" },
       method: { $regex: method, $options: "i" },
-      claim: { $regex: claim, $options: "i" },
+      claims: { $all: claims },
     }
-  );
-}
-
+    );
+  }
+  
+  module.exports = router;
