@@ -43,14 +43,14 @@ class SearchCondition extends Component {
   state = {
     title: "",
     author: "",
-    fromYear: year,
+    fromYear: year-10,
     toYear: year,
     method: "",
-    claim: [],
+    claims: [],
   };
 
   searchSeerArticle = () => {
-    const task = { title: this.state.title, author: this.state.author, fromYear: this.state.fromYear, toYear: this.state.toYear, method: this.state.method, claim: this.state.claim };
+    const task = { title: this.state.title, author: this.state.author, fromYear: this.state.fromYear, toYear: this.state.toYear, method: this.state.method, claims: this.state.claims };
     console.log(task);
     // if(task.title && task.title.length > 0){
     axios
@@ -58,7 +58,7 @@ class SearchCondition extends Component {
       .then((res) => {
         if (res.data) {
           this.props.showSeerArticleList(res.data);
-          this.setState({ title: "", author: "", fromYear: year, toYear:year, method: "", claim: [] });
+          // this.setState({ title: "", author: "", fromYear: year-10, toYear:year, method: "", claims: [] });
         }
       })
       .catch((err) => console.log(err));
@@ -90,21 +90,22 @@ class SearchCondition extends Component {
     }
   };
   
-  handleFromYear = (e) => {
+  handleFromYear = (e, {value}) => {
+    console.log(value);
     this.setState({
-      fromYear: e.target.value
+      fromYear: value
     });
   }
-  handleToYear = (e) => {
+  handleToYear = (e, {value}) => {
+    console.log(value);
     this.setState({
-      toYear: e.target.value
+      toYear: value
     });
-    
   }
   handleClaimSelect = (e, {value}) => {
     console.log(value);
     this.setState({
-      claim: value
+      claims: value
     });
   }
 
@@ -114,7 +115,7 @@ class SearchCondition extends Component {
     let { fromYear } = this.state;
     let { toYear } = this.state;
     let { method } = this.state;
-    let { claim } = this.state;
+    let { claims } = this.state;
     return (
       <Grid columns={3} divided>
         <Grid.Row>
@@ -137,7 +138,7 @@ class SearchCondition extends Component {
             <Dropdown placeholder='SE practice' selection options={practiceOptions} value={method} onChange={this.handleMethodChange} />
           </Grid.Column>
           <Grid.Column>
-            <Dropdown placeholder='Claims' fluid multiple selection options={claimOptions} value={claim} onChange={this.handleClaimSelect} />
+            <Dropdown placeholder='Claims' fluid multiple selection options={claimOptions} value={claims} onChange={this.handleClaimSelect} />
             {/* <Select multi options={options} values={claim} onChange={(value) => console.log(value)} placeholder="Claims"/> */}
             {/* <Select multi options={options} values={claim} onChange={(values) => this.handleClaimSelect(values)} placeholder="Claims"/> */}
           </Grid.Column>
