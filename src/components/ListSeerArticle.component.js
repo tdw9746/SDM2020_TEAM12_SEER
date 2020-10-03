@@ -71,7 +71,7 @@ const ListSeerArticle = ({ seerArticles }) => (
                   <Table.Cell>
                      {seerArticle.claims.map((claim) => {
                        return (
-                       <p>{claim}</p>
+                      <p>{claim}</p>
                        )
                      }
                      )}

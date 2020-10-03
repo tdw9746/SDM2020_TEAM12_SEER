@@ -135,7 +135,7 @@ class SearchCondition extends Component {
             {/* <div class="search"> */}
 
             {/* <DropdownMultipleSelection/> */}
-            <Dropdown placeholder='SE practice' selection options={practiceOptions} value={method} onChange={this.handleMethodChange} />
+            <Dropdown placeholder='SE practice' clearable selection options={practiceOptions} value={method} onChange={this.handleMethodChange} />
           </Grid.Column>
           <Grid.Column>
             <Dropdown placeholder='Claims' fluid multiple selection options={claimOptions} value={claims} onChange={this.handleClaimSelect} />
