@@ -83,15 +83,21 @@ function seerSearch(title, author, fromYear, toYear, method, claims, res, next) 
   }
   
 function seerSearchJson(title, author, fromYear, toYear, method, claims) {
-  return SeerArticle.find(
-    {
-      title: { $regex: title, $options: "i" },
-      author: { $regex: author, $options: "i" },
-      year: {$gte:fromYear, $lte:toYear},
-      method: { $regex: method, $options: "i" },
-      claims: { $all: claims },
-    }
-    );
+ let query = SeerArticle.find(
+  {
+    title: { $regex: title, $options: "i" },
+    author: { $regex: author, $options: "i" },
+    year: {$gte:fromYear, $lte:toYear},
+    method: { $regex: method, $options: "i" },
+    // claims: { $all: claims },
+  }
+  );  
+
+  if (claims.length > 0) {
+    query = query.where('claims').all(claims);
+  }
+
+  return query;
   }
   
   module.exports = router;
