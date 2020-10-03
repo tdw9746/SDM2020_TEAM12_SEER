@@ -5,6 +5,7 @@ let SeerArticle = new Schema({
     // id: {
     //     type: Number
     // },
+    _id: Number,
     title: String,
     URL: String,
     status: String,
