@@ -11,7 +11,7 @@ class Search extends Component {
   }
 
   componentDidMount(){
-    this.getSeerArticles();
+    // this.getSeerArticles();
   }
 
   showSeerArticleList = (data) => {
@@ -48,7 +48,7 @@ class Search extends Component {
 
     return(
       <div>
-        <h1>Search SeerArticle</h1>
+        <h1>Search articles</h1>
         <SearchCondition showSeerArticleList={this.showSeerArticleList}/>
         <ListSeerArticle seerArticles={seerArticles}/>
       </div>

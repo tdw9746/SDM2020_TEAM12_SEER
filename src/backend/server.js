@@ -21,6 +21,11 @@ app.use(bodyParser.json());
 
 app.use('/search', search);
 
+app.post('/echo', function(request, response){
+    console.log(request.body);      // your JSON
+    response.send(request.body);    // echo the result back
+  });
+
 // code needed to use static files
 app.use(express.static(path.join(__dirname, '../../build')))
 app.get('*', (req, res) => {
