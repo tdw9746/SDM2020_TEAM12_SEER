@@ -3,6 +3,9 @@ const router = express.Router();
 
 const SeerArticle = require("../models/SeerArticle.model");
 
+const todaysDate = new Date()
+const currentYear = todaysDate.getFullYear()
+
 // all the /search request
 router.use((req, res, next) => {
   console.log(
@@ -25,17 +28,18 @@ router.get("/", (req, res, next) => {
   //     console.log(data);
   //     console.log(res);
   //   })
-    // .catch(next);
-    seerSearch("", "", "", "", "", [], res, next);
-  });
+  // .catch(next);
+  seerSearch("", "", "", "", "", "", [], res, next);
+});
 
 // search 
 router.post("/filter", (req, res, next) => {
-  console.log(req.body); 
+  console.log(req.body);
 
   // console.log("req.body:" + req.body.task);
   console.log("req.body.title:" + req.body.title);
   console.log("req.body.author:" + req.body.author);
+  console.log("req.body.yearSelection:" + req.body.yearSelection);
   console.log("req.body.fromYear:" + req.body.fromYear);
   console.log("req.body.toYear:" + req.body.toYear);
   console.log("req.body.method:" + req.body.method);
@@ -43,13 +47,13 @@ router.post("/filter", (req, res, next) => {
 
   let title = req.body.title;
   let author = req.body.author;
+  let yearSelection = req.body.yearSelection;
   let fromYear = req.body.fromYear;
   let toYear = req.body.toYear;
   let method = req.body.method;
   let claims = req.body.claims;
-  // if(title == '') { title = '*.*'};
-  // if(method == '') { method = '*.*'};
-  seerSearch(title, author, fromYear, toYear, method, claims, res, next);
+
+  seerSearch(title, author, yearSelection, fromYear, toYear, method, claims, res, next);
 });
 
 // create
@@ -76,28 +80,53 @@ router.delete("/:id", (req, res, next) => {
     .catch(next);
 });
 
-function seerSearch(title, author, fromYear, toYear, method, claims, res, next) {
-  seerSearchJson(title, author, fromYear, toYear, method, claims)
+function seerSearch(title, author, yearSelection, fromYear, toYear, method, claims, res, next) {
+  seerSearchJson(title, author, yearSelection, fromYear, toYear, method, claims)
     .then((data) => res.json(data))
     .catch(next);
+}
+
+function seerSearchJson(title, author, yearSelection, fromYear, toYear, method, claims) {
+  let query = SeerArticle.find(
+    {
+      title: { $regex: title, $options: "i" },
+      author: { $regex: author, $options: "i" },
+      method: { $regex: method, $options: "i" },
+      // claims: { $all: claims },
+    }
+  );
+
+  // if (yearSelection != "all") {
+  //   // year: { $gte: fromYear, $lte: toYear },
+  //   query = query.where({ year: { $gte: fromYear, $lte: toYear } });
+  // } else if (condition) {
+
+  // } else {
+
+  // }
+
+  switch (yearSelection) {
+    case "thisYear":
+      query = query.where({ year: currentYear });
+      break;
+    case "fiveYears":
+      query = query.where({ year: { $gte: currentYear - 4, $lte: currentYear } });
+      break;
+    case "tenYears":
+      query = query.where({ year: { $gte: currentYear - 9, $lte: currentYear } });
+      break;
+    case "customYears":
+      query = query.where({ year: { $gte: fromYear, $lte: toYear } });
+      break;
+    default:
   }
-  
-function seerSearchJson(title, author, fromYear, toYear, method, claims) {
- let query = SeerArticle.find(
-  {
-    title: { $regex: title, $options: "i" },
-    author: { $regex: author, $options: "i" },
-    year: {$gte:fromYear, $lte:toYear},
-    method: { $regex: method, $options: "i" },
-    // claims: { $all: claims },
-  }
-  );  
 
   if (claims.length > 0) {
-    query = query.where('claims').all(claims);
+    // query = query.where('claims').all(claims);
+    query = query.where({ claims: { $all: claims } });
   }
 
   return query;
-  }
-  
-  module.exports = router;
+}
+
+module.exports = router;
