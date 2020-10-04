@@ -130,3 +130,4 @@ function seerSearchJson(title, author, yearSelection, fromYear, toYear, method, 
 }
 
 module.exports = router;
+// module.method = seerSearchJson;
