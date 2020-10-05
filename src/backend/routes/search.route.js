@@ -115,7 +115,7 @@ function seerSearchJson(title, author, yearSelection, fromYear, toYear, method, 
     case "tenYears":
       query = query.where({ year: { $gte: currentYear - 9, $lte: currentYear } });
       break;
-    case "customYears":
+    case "custom":
       query = query.where({ year: { $gte: fromYear, $lte: toYear } });
       break;
     default:
@@ -123,7 +123,7 @@ function seerSearchJson(title, author, yearSelection, fromYear, toYear, method, 
 
   if (claims.length > 0) {
     // query = query.where('claims').all(claims);
-    query = query.where({ claims: { $all: claims } });
+    query = query.where({ claims: { $in: claims } });
   }
 
   return query;

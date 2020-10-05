@@ -57,12 +57,12 @@ const ListSeerArticle = ({ seerArticles }) => {
             onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'title' })}>
               Title
         </Table.HeaderCell>
-        <Table.HeaderCell  className="cell-width" sorted={column === 'author' ? direction : null}
+        <Table.HeaderCell  className="cell-width-small" sorted={column === 'author' ? direction : null}
             onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'author' })}>Author</Table.HeaderCell>
-        <Table.HeaderCell  >Year</Table.HeaderCell>
-        <Table.HeaderCell  singleLine>SE Practice</Table.HeaderCell>
-        <Table.HeaderCell  className="cell-width">Claim</Table.HeaderCell>
-        <Table.HeaderCell  className="cell-width">Evidence</Table.HeaderCell>
+        <Table.HeaderCell  className="cell-width-small">Year</Table.HeaderCell>
+        <Table.HeaderCell  className="cell-width-small" singleLine>SE Practice</Table.HeaderCell>
+        <Table.HeaderCell  >Claimed benefits</Table.HeaderCell>
+        <Table.HeaderCell  >Evidences</Table.HeaderCell>
       </Table.Row>
     </Table.Header>
 
