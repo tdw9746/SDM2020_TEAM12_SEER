@@ -43,6 +43,6 @@ describe("Search Condition Component Testing", () => {
 
   it("Renders Radio", () => {
     const wrapper = shallow(<SearchCondition />);
-    expect(wrapper.find(Radio)).to.have.length(5);
+    expect(wrapper.find(Radio)).to.have.length(4);
   });
 });
