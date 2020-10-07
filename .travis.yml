@@ -20,5 +20,5 @@ deploy:
       branch: test
 branches:
   only:
-  - release
+  - test
   - dev
