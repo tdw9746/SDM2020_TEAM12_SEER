@@ -48,7 +48,7 @@ class Search extends Component {
 
     return(
       <div>
-        <h1>Search articles</h1>
+        <h1 align="left">Search articles</h1>
         <SearchCondition showSeerArticleList={this.showSeerArticleList}/>
         <ListSeerArticle seerArticles={seerArticles}/>
       </div>
