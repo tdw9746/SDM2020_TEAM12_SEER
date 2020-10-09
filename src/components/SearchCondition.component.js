@@ -56,12 +56,26 @@ class SearchCondition extends Component {
     claims: [],
 
     methodError: false,
-    claimError: false,
+    claimsError: false,
     fromYearError: false,
     toYearError: false
   };
 
+  validateForm() {
+    let result = true;
 
+    if (!this.state.method || this.state.method == '') {
+      this.setState({methodError:true});
+      result = false;
+    } 
+
+    if (!this.state.claims || this.state.claims.length == 0) {
+      this.setState({claimsError:true});
+      result = false;
+    } 
+
+    return result;
+  }
 
   componentDidMount() {
     // const a = $('#selectAll');
@@ -117,10 +131,8 @@ class SearchCondition extends Component {
   }
 
   searchSeerArticle = () => {
-    if (this.state.method == '') {
-      
-    } else {
-      
+    if (this.validateForm() == false) {
+      return;
     }
 
     const task = { title: this.state.title, author: this.state.author, yearSelection: this.state.yearSelection, fromYear: this.state.fromYear, toYear: this.state.toYear, method: this.state.method, claims: this.state.claims };
@@ -156,6 +168,7 @@ class SearchCondition extends Component {
     console.log(value);
     this.setState({
       method: value,
+      methodError: false,
     });
   };
 
@@ -182,7 +195,8 @@ class SearchCondition extends Component {
   handleClaimSelect = (e, { value }) => {
     console.log(value);
     this.setState({
-      claims: value
+      claims: value,
+      claimsError: false,
     });
   }
 
@@ -272,8 +286,8 @@ class SearchCondition extends Component {
           <Form.Dropdown required label="To" search scrolling className="small_dropdown" placeholder='To' selection options={yearOptions} value={toYear} onChange={this.handleToYear} onKeyDown={this.handleKeyDown} />
         </Form.Group>
         <Form.Group >
-          <Form.Dropdown error={this.state.practiceError} required width={3} label='SE practice' fluid placeholder='Please select SE practice' clearable search selection options={practiceOptions} value={method} onChange={this.handleMethodChange} />
-          <Form.Dropdown required width={4} label='Claimed Benefit' id="benefitDropdown" fluid placeholder='Please enter claimed benefit' multiple search selection options={claimOptions} value={claims} onChange={this.handleClaimSelect} />
+          <Form.Dropdown error={this.state.methodError} required width={3} label='SE practice' fluid placeholder='Please select SE practice' clearable search selection options={practiceOptions} value={method} onChange={this.handleMethodChange} />
+          <Form.Dropdown error={this.state.claimsError} required width={4} label='Claimed Benefit' id="benefitDropdown" fluid placeholder='Please enter claimed benefit' multiple search selection options={claimOptions} value={claims} onChange={this.handleClaimSelect} />
           <Form.Input width={3} label='Title' placeholder='Please enter title'
             // class="search_input"
             fluid
@@ -292,10 +306,8 @@ class SearchCondition extends Component {
             placeholder="Please enter author"
           />
           <Form.Button size="huge" verticalAlign="" width={2} onClick={this.clearInputfields}>Clear</Form.Button>
-          <Form.Button size="huge" disabled={!this.state.method || this.state.claims.length==0 || !this.state.fromYear || !this.state.toYear} 
-          width={2} onClick={this.searchSeerArticle}>Search</Form.Button>
+          <Form.Button size="huge" width={2} onClick={this.searchSeerArticle}>Search</Form.Button>
         </Form.Group>
-        
       </Form>
     );
   }
