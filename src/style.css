@@ -33,3 +33,11 @@
     margin-left: -15px;
     padding: 3px !important;
 }
+
+.ui.grid>.row>.column.noPadding {
+    padding: 0 !important;
+}
+
+.ui.grid>.row>.column {
+    padding: 0 !important;
+}
