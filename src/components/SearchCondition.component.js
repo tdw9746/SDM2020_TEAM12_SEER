@@ -238,29 +238,6 @@ class SearchCondition extends Component {
     let { claims } = this.state;
     return (
       <Form>
-        <Form.Group >
-          <Form.Dropdown error={this.state.practiceError} required width={3} label='SE practice' fluid placeholder='Please select SE practice' clearable search selection options={practiceOptions} value={method} onChange={this.handleMethodChange} />
-          <Form.Dropdown required width={4} label='Claimed Benefit' id="benefitDropdown" fluid placeholder='Please enter claimed benefit' multiple search selection options={claimOptions} value={claims} onChange={this.handleClaimSelect} />
-          <Form.Input width={3} label='Title' placeholder='Please enter title'
-            // class="search_input"
-            fluid
-            type="text"
-            onChange={this.handleTitleChange}
-            onKeyDown={this.handleKeyDown}
-            value={title}
-          />
-          <Form.Input width={2} label='Author'
-            // class="search_input"
-            fluid
-            type="text"
-            onChange={this.handleAuthorChange}
-            onKeyDown={this.handleKeyDown}
-            value={author}
-            placeholder="Please enter author"
-          />
-          <Form.Button verticalAlign="" width={1} onClick={this.clearInputfields}>Clear</Form.Button>
-          <Form.Button disabled={!this.state.method || this.state.claims.length==0 || !this.state.fromYear || !this.state.toYear} width={2} onClick={this.searchSeerArticle}>Search</Form.Button>
-        </Form.Group>
         <Form.Group inline>
           <label>Publication Year</label>
           <Form.Radio
@@ -294,6 +271,31 @@ class SearchCondition extends Component {
           <Form.Dropdown required label="From" search scrolling className="small_dropdown" placeholder='From' selection options={yearOptions} value={fromYear} onChange={this.handleFromYear} onKeyDown={this.handleKeyDown} />
           <Form.Dropdown required label="To" search scrolling className="small_dropdown" placeholder='To' selection options={yearOptions} value={toYear} onChange={this.handleToYear} onKeyDown={this.handleKeyDown} />
         </Form.Group>
+        <Form.Group >
+          <Form.Dropdown error={this.state.practiceError} required width={3} label='SE practice' fluid placeholder='Please select SE practice' clearable search selection options={practiceOptions} value={method} onChange={this.handleMethodChange} />
+          <Form.Dropdown required width={4} label='Claimed Benefit' id="benefitDropdown" fluid placeholder='Please enter claimed benefit' multiple search selection options={claimOptions} value={claims} onChange={this.handleClaimSelect} />
+          <Form.Input width={3} label='Title' placeholder='Please enter title'
+            // class="search_input"
+            fluid
+            type="text"
+            onChange={this.handleTitleChange}
+            onKeyDown={this.handleKeyDown}
+            value={title}
+          />
+          <Form.Input width={2} label='Author'
+            // class="search_input"
+            fluid
+            type="text"
+            onChange={this.handleAuthorChange}
+            onKeyDown={this.handleKeyDown}
+            value={author}
+            placeholder="Please enter author"
+          />
+          <Form.Button size="huge" verticalAlign="" width={2} onClick={this.clearInputfields}>Clear</Form.Button>
+          <Form.Button size="huge" disabled={!this.state.method || this.state.claims.length==0 || !this.state.fromYear || !this.state.toYear} 
+          width={2} onClick={this.searchSeerArticle}>Search</Form.Button>
+        </Form.Group>
+        
       </Form>
     );
   }
