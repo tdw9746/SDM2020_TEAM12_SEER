@@ -12,6 +12,7 @@ class Search extends Component {
 
   componentDidMount(){
     // this.getSeerArticles();
+    console.log("search")
   }
 
   showSeerArticleList = (data) => {

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import _ from 'lodash'
+import _ from 'lodash';
 
 // import faker from 'faker';
 
@@ -13,7 +13,8 @@ import {
   Button,
   Radio,
   Form,
-  Input
+  Input,
+  Checkbox
 } from 'semantic-ui-react'
 
 const currentYear = (new Date()).getFullYear();
@@ -43,6 +44,8 @@ const practiceOptions = [
 // )
 
 class SearchCondition extends Component {
+
+
   state = {
     title: "",
     author: "",
@@ -51,13 +54,75 @@ class SearchCondition extends Component {
     toYear: currentYear,
     method: "",
     claims: [],
+
+    methodError: false,
+    claimError: false,
+    fromYearError: false,
+    toYearError: false
   };
 
+
+
+  componentDidMount() {
+    // const a = $('#selectAll');
+    // console.log("#########################################");
+    // console.log(a);
+
+    // $(document).on('change', '#selectAll', function (e) {
+    //   if ($(this).prop("checked") == true) {
+    //     const options = $('#benefitDropdown > .menu > .item').toArray().map((obj) => obj.dataset.value);
+    //     console.log(options);
+    //     $('#benefitDropdown').dropdown('set exactly', options);
+    //   } else if ($(this).prop("checked") == false) {
+    //     $('#benefitDropdown').dropdown('clear');
+    //   }
+    // });
+
+    // $('#selectAll').checkbox({
+    //   onChecked() {
+    //     console.log("JQuery call");
+    //     const options = $('#benefitDropdown > .menu > .item').toArray().map((obj) => obj.dataset.value);
+    //     $('#benefitDropdown').dropdown('set exactly', options);
+    //   },
+    //   onUnchecked() {
+    //     $('#benefitDropdown').dropdown('clear');
+    //   },
+    // });
+
+    // $('#benefitDropdown').dropdown({
+    //   label: {
+    //     duration: 0,
+    //   },
+    //   debug: true,
+    //   performance: true,
+    // });
+
+    //     $('.ui.checkbox')
+    //   .checkbox({
+    //     onChecked() {
+    //       console.log("JQuery call");
+    //       const options = $('#benefitDropdown > option').toArray().map(
+    //         (obj) => obj.value
+    //       );
+    //       $('#benefitDropdown').dropdown('set exactly', options);
+    //     },
+    //     onUnchecked() {
+    //       $('#benefitDropdown').dropdown('clear');
+    //     },
+    //   });
+  }
+
   clearInputfields = () => {
-    this.setState({ title: "", author: "", yearSelection: "all", fromYear: 1950, toYear:currentYear, method: "", claims: [] });
+    this.setState({ title: "", author: "", yearSelection: "all", fromYear: 1950, toYear: currentYear, method: "", claims: [] });
   }
 
   searchSeerArticle = () => {
+    if (this.state.method == '') {
+      
+    } else {
+      
+    }
+
     const task = { title: this.state.title, author: this.state.author, yearSelection: this.state.yearSelection, fromYear: this.state.fromYear, toYear: this.state.toYear, method: this.state.method, claims: this.state.claims };
     console.log(task);
     // if(task.title && task.title.length > 0){
@@ -146,7 +211,7 @@ class SearchCondition extends Component {
       case "fiveYears":
         this.setState(
           {
-            fromYear: currentYear-4,
+            fromYear: currentYear - 4,
             toYear: currentYear,
           }
         );
@@ -154,7 +219,7 @@ class SearchCondition extends Component {
       case "tenYears":
         this.setState(
           {
-            fromYear: currentYear-9,
+            fromYear: currentYear - 9,
             toYear: currentYear,
           }
         );
@@ -173,109 +238,64 @@ class SearchCondition extends Component {
     let { claims } = this.state;
     return (
       <Form>
-
-        <Grid stackable divided='vertically' verticalAlign="middle">
-        <Grid.Row columns={4}>
-            <Grid.Column  width={6}>
-              <Input  placeholder='Title'
-                // class="search_input"
-                fluid
-                type="text"
-                onChange={this.handleTitleChange}
-                onKeyDown={this.handleKeyDown}
-                value={title}
-              />
-            </Grid.Column>
-            <Grid.Column width={6}>
-              <Input placeholder='Author'
-                // class="search_input"
-                fluid
-                type="text"
-                onChange={this.handleAuthorChange}
-                onKeyDown={this.handleKeyDown}
-                value={author}
-                placeholder="Author"
-              />
-            </Grid.Column>
-            <Grid.Column floated='right' width={2}>
-              <Button onClick={this.clearInputfields}>Clear</Button>
-            </Grid.Column>
-            <Grid.Column floated='right' width={2}>
-              <Button onClick={this.searchSeerArticle}>Search</Button>
-            </Grid.Column>
-          </Grid.Row>
-          <Grid.Row columns={8}>
-            <Grid.Column textAlign="left">
-              Publication Year
-            </Grid.Column>
-            <Grid.Column>
-              <Radio
-                label='All years'
-                name='radioGroup'
-                value='all'
-                checked={this.state.yearSelection === 'all'}
-                onChange={this.handleRadio}
-              />
-            </Grid.Column>
-            <Grid.Column>
-              <Radio
-                label='This year'
-                name='radioGroup'
-                value='thisYear'
-                checked={this.state.yearSelection === 'thisYear'}
-                onChange={this.handleRadio}
-              />
-            </Grid.Column>
-            <Grid.Column>
-              <Radio
-                label='Last 5 years'
-                name='radioGroup'
-                value='fiveYears'
-                checked={this.state.yearSelection === 'fiveYears'}
-                onChange={this.handleRadio}
-              />
-            </Grid.Column>
-            <Grid.Column>
-              <Radio
-                label='Last 10 years'
-                name='radioGroup'
-                value='tenYears'
-                checked={this.state.yearSelection === 'tenYears'}
-                onChange={this.handleRadio}
-              />
-            </Grid.Column>
-            {/* <Grid.Column >
-              <Radio
-                label='Custom'
-                name='radioGroup'
-                value='custom'
-                checked={this.state.yearSelection === 'custom'}
-                onChange={this.handleRadio}
-              />
-            </Grid.Column> */}
-            <Grid.Column width={3}>
-              From : <Dropdown search className="small_dropdown" placeholder='From' selection options={yearOptions} value={fromYear} onChange={this.handleFromYear}  onKeyDown={this.handleKeyDown}/>
-            </Grid.Column>
-            <Grid.Column width={3}>
-              To : <Dropdown search className="small_dropdown" placeholder='To' selection options={yearOptions} value={toYear} onChange={this.handleToYear}  onKeyDown={this.handleKeyDown}/>
-            </Grid.Column>
-          </Grid.Row>
-          <Grid.Row columns={3}> 
-            <Grid.Column width={4}>
-              {/* <div class="search"> */}
-              {/* <DropdownMultipleSelection/> */}
-              <Dropdown fluid placeholder='SE practice' clearable search selection options={practiceOptions} value={method} onChange={this.handleMethodChange} />
-            </Grid.Column>
-            <Grid.Column width={8}>
-              <Dropdown fluid placeholder='Claims' fluid multiple search selection options={claimOptions} value={claims} onChange={this.handleClaimSelect} />
-              {/* <Select multi options={options} values={claim} onChange={(value) => console.log(value)} placeholder="Claims"/> */}
-              {/* <Select multi options={options} values={claim} onChange={(values) => this.handleClaimSelect(values)} placeholder="Claims"/> */}
-            </Grid.Column>
-            <Grid.Column width={4}>
-            </Grid.Column>
-          </Grid.Row>
-          
-        </Grid>
+        <Form.Group inline>
+          <label>Publication Year</label>
+          <Form.Radio
+            label='All years'
+            name='radioGroup'
+            value='all'
+            checked={this.state.yearSelection === 'all'}
+            onChange={this.handleRadio}
+          />
+          <Form.Radio
+            label='This year'
+            name='radioGroup'
+            value='thisYear'
+            checked={this.state.yearSelection === 'thisYear'}
+            onChange={this.handleRadio}
+          />
+          <Form.Radio
+            label='Last 5 years'
+            name='radioGroup'
+            value='fiveYears'
+            checked={this.state.yearSelection === 'fiveYears'}
+            onChange={this.handleRadio}
+          />
+          <Form.Radio
+            label='Last 10 years'
+            name='radioGroup'
+            value='tenYears'
+            checked={this.state.yearSelection === 'tenYears'}
+            onChange={this.handleRadio}
+          />
+          <Form.Dropdown required label="From" search scrolling className="small_dropdown" placeholder='From' selection options={yearOptions} value={fromYear} onChange={this.handleFromYear} onKeyDown={this.handleKeyDown} />
+          <Form.Dropdown required label="To" search scrolling className="small_dropdown" placeholder='To' selection options={yearOptions} value={toYear} onChange={this.handleToYear} onKeyDown={this.handleKeyDown} />
+        </Form.Group>
+        <Form.Group >
+          <Form.Dropdown error={this.state.practiceError} required width={3} label='SE practice' fluid placeholder='Please select SE practice' clearable search selection options={practiceOptions} value={method} onChange={this.handleMethodChange} />
+          <Form.Dropdown required width={4} label='Claimed Benefit' id="benefitDropdown" fluid placeholder='Please enter claimed benefit' multiple search selection options={claimOptions} value={claims} onChange={this.handleClaimSelect} />
+          <Form.Input width={3} label='Title' placeholder='Please enter title'
+            // class="search_input"
+            fluid
+            type="text"
+            onChange={this.handleTitleChange}
+            onKeyDown={this.handleKeyDown}
+            value={title}
+          />
+          <Form.Input width={2} label='Author'
+            // class="search_input"
+            fluid
+            type="text"
+            onChange={this.handleAuthorChange}
+            onKeyDown={this.handleKeyDown}
+            value={author}
+            placeholder="Please enter author"
+          />
+          <Form.Button size="huge" verticalAlign="" width={2} onClick={this.clearInputfields}>Clear</Form.Button>
+          <Form.Button size="huge" disabled={!this.state.method || this.state.claims.length==0 || !this.state.fromYear || !this.state.toYear} 
+          width={2} onClick={this.searchSeerArticle}>Search</Form.Button>
+        </Form.Group>
+        
       </Form>
     );
   }
