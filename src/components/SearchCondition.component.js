@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import _ from 'lodash'
+import _ from 'lodash';
+import $ from 'jquery';
 
 // import faker from 'faker';
 
@@ -13,7 +14,8 @@ import {
   Button,
   Radio,
   Form,
-  Input
+  Input,
+  Checkbox
 } from 'semantic-ui-react'
 
 const currentYear = (new Date()).getFullYear();
@@ -43,6 +45,8 @@ const practiceOptions = [
 // )
 
 class SearchCondition extends Component {
+
+
   state = {
     title: "",
     author: "",
@@ -53,8 +57,59 @@ class SearchCondition extends Component {
     claims: [],
   };
 
+
+
+  componentDidMount() {
+    // const a = $('#selectAll');
+    // console.log("#########################################");
+    // console.log(a);
+    
+    // $(document).on('change', '#selectAll', function (e) {
+    //   if ($(this).prop("checked") == true) {
+    //     const options = $('#benefitDropdown > .menu > .item').toArray().map((obj) => obj.dataset.value);
+    //     console.log(options);
+    //     $('#benefitDropdown').dropdown('set exactly', options);
+    //   } else if ($(this).prop("checked") == false) {
+    //     $('#benefitDropdown').dropdown('clear');
+    //   }
+    // });
+
+    // $('#selectAll').checkbox({
+    //   onChecked() {
+    //     console.log("JQuery call");
+    //     const options = $('#benefitDropdown > .menu > .item').toArray().map((obj) => obj.dataset.value);
+    //     $('#benefitDropdown').dropdown('set exactly', options);
+    //   },
+    //   onUnchecked() {
+    //     $('#benefitDropdown').dropdown('clear');
+    //   },
+    // });
+
+    // $('#benefitDropdown').dropdown({
+    //   label: {
+    //     duration: 0,
+    //   },
+    //   debug: true,
+    //   performance: true,
+    // });
+
+    //     $('.ui.checkbox')
+    //   .checkbox({
+    //     onChecked() {
+    //       console.log("JQuery call");
+    //       const options = $('#benefitDropdown > option').toArray().map(
+    //         (obj) => obj.value
+    //       );
+    //       $('#benefitDropdown').dropdown('set exactly', options);
+    //     },
+    //     onUnchecked() {
+    //       $('#benefitDropdown').dropdown('clear');
+    //     },
+    //   });
+  }
+
   clearInputfields = () => {
-    this.setState({ title: "", author: "", yearSelection: "all", fromYear: 1950, toYear:currentYear, method: "", claims: [] });
+    this.setState({ title: "", author: "", yearSelection: "all", fromYear: 1950, toYear: currentYear, method: "", claims: [] });
   }
 
   searchSeerArticle = () => {
@@ -146,7 +201,7 @@ class SearchCondition extends Component {
       case "fiveYears":
         this.setState(
           {
-            fromYear: currentYear-4,
+            fromYear: currentYear - 4,
             toYear: currentYear,
           }
         );
@@ -154,7 +209,7 @@ class SearchCondition extends Component {
       case "tenYears":
         this.setState(
           {
-            fromYear: currentYear-9,
+            fromYear: currentYear - 9,
             toYear: currentYear,
           }
         );
@@ -175,9 +230,9 @@ class SearchCondition extends Component {
       <Form>
 
         <Grid stackable divided='vertically' verticalAlign="middle">
-        <Grid.Row columns={4}>
-            <Grid.Column  width={6}>
-              <Input  placeholder='Title'
+          <Grid.Row columns={4}>
+            <Grid.Column width={6}>
+              <Input placeholder='Title'
                 // class="search_input"
                 fluid
                 type="text"
@@ -254,27 +309,28 @@ class SearchCondition extends Component {
               />
             </Grid.Column> */}
             <Grid.Column width={3}>
-              From : <Dropdown search className="small_dropdown" placeholder='From' selection options={yearOptions} value={fromYear} onChange={this.handleFromYear}  onKeyDown={this.handleKeyDown}/>
+              From : <Dropdown search scrolling className="small_dropdown" placeholder='From' selection options={yearOptions} value={fromYear} onChange={this.handleFromYear} onKeyDown={this.handleKeyDown} />
             </Grid.Column>
             <Grid.Column width={3}>
-              To : <Dropdown search className="small_dropdown" placeholder='To' selection options={yearOptions} value={toYear} onChange={this.handleToYear}  onKeyDown={this.handleKeyDown}/>
+              To : <Dropdown search scrolling className="small_dropdown" placeholder='To' selection options={yearOptions} value={toYear} onChange={this.handleToYear} onKeyDown={this.handleKeyDown} />
             </Grid.Column>
           </Grid.Row>
-          <Grid.Row columns={3}> 
+          <Grid.Row columns={3}>
             <Grid.Column width={4}>
               {/* <div class="search"> */}
               {/* <DropdownMultipleSelection/> */}
-              <Dropdown fluid placeholder='SE practice' clearable search selection options={practiceOptions} value={method} onChange={this.handleMethodChange} />
+              <Dropdown fluid placeholder='Please select an SE practice' clearable search selection options={practiceOptions} value={method} onChange={this.handleMethodChange} />
             </Grid.Column>
             <Grid.Column width={8}>
-              <Dropdown fluid placeholder='Claims' fluid multiple search selection options={claimOptions} value={claims} onChange={this.handleClaimSelect} />
+              <Dropdown id="benefitDropdown" fluid placeholder='Claimed benefit' fluid multiple search selection options={claimOptions} value={claims} onChange={this.handleClaimSelect} />
               {/* <Select multi options={options} values={claim} onChange={(value) => console.log(value)} placeholder="Claims"/> */}
               {/* <Select multi options={options} values={claim} onChange={(values) => this.handleClaimSelect(values)} placeholder="Claims"/> */}
             </Grid.Column>
-            <Grid.Column width={4}>
+            <Grid.Column floated="left" width={4}>
+              <Checkbox id="selectAll" toggle label='Select all' />
             </Grid.Column>
           </Grid.Row>
-          
+
         </Grid>
       </Form>
     );
