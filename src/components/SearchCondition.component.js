@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 import _ from 'lodash';
-import $ from 'jquery';
 
 // import faker from 'faker';
 
@@ -242,7 +241,7 @@ class SearchCondition extends Component {
               />
             </Grid.Column>
             <Grid.Column width={6}>
-              <Input placeholder='Author'
+              <Input 
                 // class="search_input"
                 fluid
                 type="text"
@@ -322,7 +321,7 @@ class SearchCondition extends Component {
               <Dropdown fluid placeholder='Please select an SE practice' clearable search selection options={practiceOptions} value={method} onChange={this.handleMethodChange} />
             </Grid.Column>
             <Grid.Column width={8}>
-              <Dropdown id="benefitDropdown" fluid placeholder='Claimed benefit' fluid multiple search selection options={claimOptions} value={claims} onChange={this.handleClaimSelect} />
+              <Dropdown id="benefitDropdown" fluid placeholder='Claimed benefit' multiple search selection options={claimOptions} value={claims} onChange={this.handleClaimSelect} />
               {/* <Select multi options={options} values={claim} onChange={(value) => console.log(value)} placeholder="Claims"/> */}
               {/* <Select multi options={options} values={claim} onChange={(values) => this.handleClaimSelect(values)} placeholder="Claims"/> */}
             </Grid.Column>
