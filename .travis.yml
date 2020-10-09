@@ -11,14 +11,6 @@ deploy:
     on:
       repo: tdw9746/SDM2020_TEAM12_SEER
       branch: dev
-  - provider: heroku
-    api_key:
-      secure: XqWpj2UgsJ0f1xpNNffIcGPl/C2RAIOLlv+TlZu1IYpfamwNMPkBg+kOSI16C5ut8ejL2dnbMippFXbbNaLQbY8Uic3VUHszEwnsBuiHY/lxhAsmXD4oxaDJb7+VNkqrB7qfiU6pVejIDXCBjoIQSW5JvNV8/JvN2INYIOyNf/9JvxMWrS19WfzmEFA5Xya8+ws960CjCxGarY4A0NKu8xYIJ/pKsPpWyQNeYHcBHoCay3+pQCJDfst0VLYd6gtv2tD6HE8mvvpK2HrnpP3gw8pY+bpIv8vt65+9YO7lFDsvkp4MglYCKuMpPbwwAWjF9FuMUf2gyvC5+9ekOotPP73JxICcATS8Vrz8Nq4nZ66VWVOSYIjxWILZ+FfzhUcGdyS2V2ToUI/a32M3XHvoZL7SEFQPCaOsaASO3U03yGyk2qWggOHjAGITQJ7EyOdHjKvOrjr1O3v0es9REsLg9QqWf0vgKRJXKImKt0nw5a4bXYyCcQc1gdcXVNWXOMqf7+QcfsG0rsQiSK8unqtplUr6F8Th6i7fesSrO4b9nKmoGQqF8R0CUM339E2B4LPUtsiK+VlSoNSKUBjx6DRQIAhxXE5yrKhDj7L0DvPYAJHqdWKaF3ZneQCPoeNurkt3bTbBAULvxG3LoCUbCjaQxsm8Hlku0Vkbw0t5+c0o/is=
-    app: sdm2020-team12-seer-test
-    on:
-      repo: tdw9746/SDM2020_TEAM12_SEER
-      branch: test
 branches:
   only:
-  - test
   - dev
