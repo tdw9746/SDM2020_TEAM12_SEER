@@ -127,7 +127,20 @@ class SearchCondition extends Component {
   }
 
   clearInputfields = () => {
-    this.setState({ title: "", author: "", yearSelection: "all", fromYear: 1950, toYear: currentYear, method: "", claims: [] });
+    this.setState({ 
+      title: "",
+    author: "",
+    yearSelection: "all",
+    fromYear: 1950,
+    toYear: currentYear,
+    method: "",
+    claims: [],
+
+    methodError: false,
+    claimsError: false,
+    fromYearError: false,
+    toYearError: false
+    });
   }
 
   searchSeerArticle = () => {
