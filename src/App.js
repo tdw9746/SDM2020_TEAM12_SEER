@@ -5,6 +5,9 @@ import { Header, Icon } from 'semantic-ui-react'
 import Search from './components/Search.component';
 import './App.css';
 
+import './loader.js'
+import './tablesort.js'
+
 const App = () => {
   return (
     <div className="App">
