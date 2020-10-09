@@ -27,8 +27,8 @@
     "test:unit:watch": "npm run test:unit -- --watch",
     "eject": "react-scripts eject",
     "start-client": "react-scripts start",
-    "start": "node src/backend/server.js",
-    "dev": "concurrently \"node src/backend/server.js\" \"react-scripts start\"",
+    "start": "nodemon src/backend/server.js",
+    "dev": "concurrently \"nodemon src/backend/server.js\" \"react-scripts start\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false && npm install && npm run build"
   },
   "eslintConfig": {
