@@ -121,10 +121,9 @@ function seerSearchJson(title, author, yearSelection, fromYear, toYear, method, 
     default:
   }
 
-  // if (claims.length > 0) {
-    // query = query.where('claims').all(claims);
+  if (claims.length > 0) {
     query = query.where({ claims: { $in: claims } });
-  // }
+  }
 
   // sorting
   query = query.sort({year: 'descending'});

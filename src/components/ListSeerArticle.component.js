@@ -42,7 +42,7 @@ class ListSeerArticle extends Component {
           <Table.Row>
             <Table.HeaderCell className="cell-width" >Title</Table.HeaderCell>
             <Table.HeaderCell className="cell-width-small" >Author</Table.HeaderCell>
-            <Table.HeaderCell className="cell-width-small sorted descending">Year</Table.HeaderCell>
+            <Table.HeaderCell className="cell-width-small">Year</Table.HeaderCell>
             <Table.HeaderCell className="cell-width-small" singleLine>SE Practice</Table.HeaderCell>
             <Table.HeaderCell >Claimed benefits</Table.HeaderCell>
             <Table.HeaderCell >Evidences</Table.HeaderCell>
