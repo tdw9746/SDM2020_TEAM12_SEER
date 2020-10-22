@@ -39,7 +39,7 @@ describe("Search result Component Testing", () => {
 
   it("Renders cells", () => {
     const wrapper = mount(<ListSeerArticle />);
-    expect(wrapper.find(Table.Cell)).to.have.length(7);
+    expect(wrapper.find(Table.Cell)).to.have.length(10);
   });
 
   // it("Renders className", () => {
