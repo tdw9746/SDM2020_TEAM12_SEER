@@ -37,15 +37,20 @@ class ListSeerArticle extends Component {
     console.log(this.props.seerArticles);
     let seerArticles = this.props.seerArticles;
     return (
-      <Table sortable striped>
+      <Table sortable striped compact>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell className="cell-width" >Title</Table.HeaderCell>
-            <Table.HeaderCell className="cell-width-small" >Author</Table.HeaderCell>
-            <Table.HeaderCell className="cell-width-small">Year</Table.HeaderCell>
-            <Table.HeaderCell className="cell-width-small" singleLine>SE Practice</Table.HeaderCell>
-            <Table.HeaderCell >Claimed benefits</Table.HeaderCell>
-            <Table.HeaderCell >Evidences</Table.HeaderCell>
+            <Table.HeaderCell rowSpan='2' textAlign="center" className="cell-width" >Title</Table.HeaderCell>
+            <Table.HeaderCell rowSpan='2' textAlign="center" className="cell-width-small" >Author</Table.HeaderCell>
+            <Table.HeaderCell rowSpan='2' textAlign="center" className="cell-width-small">Year</Table.HeaderCell>
+            <Table.HeaderCell rowSpan='2' textAlign="center" className="cell-width-small" singleLine>SE Practice</Table.HeaderCell>
+            <Table.HeaderCell rowSpan='2' textAlign="center" className="cell-width">Claimed benefits</Table.HeaderCell>
+            <Table.HeaderCell colSpan='3' textAlign="center" >Evidence</Table.HeaderCell>
+          </Table.Row>
+          <Table.Row>
+            <Table.HeaderCell textAlign="center">Type</Table.HeaderCell>
+            <Table.HeaderCell textAlign="center">Strength</Table.HeaderCell>
+            <Table.HeaderCell textAlign="center">Support</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
 
@@ -81,13 +86,34 @@ class ListSeerArticle extends Component {
                       <Table.Cell>
                         {seerArticle.claims.map((claim) => {
                           return (
-                            <p>{claim}</p>
+                            <p>{claim.benefit}</p>
                           )
                         }
                         )}
                       </Table.Cell>
                       <Table.Cell>
-                        {seerArticle.evidence}
+                      {seerArticle.claims.map((claim) => {
+                          return (
+                            <p>{claim.type}</p>
+                          )
+                        }
+                        )}
+                      </Table.Cell>
+                      <Table.Cell>
+                      {seerArticle.claims.map((claim) => {
+                          return (
+                            <p>{claim.strength}</p>
+                          )
+                        }
+                        )}
+                      </Table.Cell>
+                      <Table.Cell>
+                      {seerArticle.claims.map((claim) => {
+                          return (
+                            <p>{claim.isSupport}</p>
+                          )
+                        }
+                        )}
                       </Table.Cell>
                     </Table.Row>
                   )

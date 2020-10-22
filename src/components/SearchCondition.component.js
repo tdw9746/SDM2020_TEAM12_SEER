@@ -72,8 +72,8 @@ class SearchCondition extends Component {
     if (!this.state.claims || this.state.claims.length == 0) {
       this.setState({claimsError:true});
       result = false;
-    } 
-
+    }
+    console.log("returning result");
     return result;
   }
 
@@ -127,6 +127,8 @@ class SearchCondition extends Component {
   }
 
   clearInputfields = () => {
+    console.log("CLEAR");
+
     this.setState({ 
       title: "",
     author: "",
@@ -144,9 +146,11 @@ class SearchCondition extends Component {
   }
 
   searchSeerArticle = () => {
+    console.log("Search article()");
     if (this.validateForm() == false) {
       return;
     }
+    console.log("Validation passed");
 
     const task = { title: this.state.title, author: this.state.author, yearSelection: this.state.yearSelection, fromYear: this.state.fromYear, toYear: this.state.toYear, method: this.state.method, claims: this.state.claims };
     console.log(task);
@@ -186,8 +190,11 @@ class SearchCondition extends Component {
   };
 
   handleKeyDown = (e) => {
+    // console.log("handle key down");
     if (e.key === "Enter") {
+      // console.log("ENTER");
       this.searchSeerArticle();
+      e.preventDefault();
     }
   };
 

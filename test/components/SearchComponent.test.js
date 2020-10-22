@@ -54,7 +54,7 @@ describe("Search integration test ", () => {
  
     const wrapperResult = mount(<ListSeerArticle />);
 
-    expect(wrapperResult.find(Table.Row)).to.have.length(2);
+    expect(wrapperResult.find(Table.Row)).to.have.length(3);
 
   });
 });
