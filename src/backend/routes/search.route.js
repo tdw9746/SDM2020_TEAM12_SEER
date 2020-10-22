@@ -82,7 +82,10 @@ router.delete("/:id", (req, res, next) => {
 
 function seerSearch(title, author, yearSelection, fromYear, toYear, method, claims, res, next) {
   seerSearchJson(title, author, yearSelection, fromYear, toYear, method, claims)
-    .then((data) => res.json(data))
+    .then((data) => { 
+      console.log(JSON.stringify(data, null, 4))
+      res.json(data)
+    })
     .catch(next);
 }
 
@@ -122,10 +125,14 @@ function seerSearchJson(title, author, yearSelection, fromYear, toYear, method, 
   }
 
   if (claims.length > 0) {
-    // query = query.where('claims').all(claims);
-    query = query.where({ claims: { $in: claims } });
+    query = query.where({ "claims.benefit": { $in: claims } });
   }
 
+  // sorting
+  query = query.sort({year: 'descending'});
+
+  // console.log(JSON.stringify(query, null, 4))
+  console.log(query)
   return query;
 }
 

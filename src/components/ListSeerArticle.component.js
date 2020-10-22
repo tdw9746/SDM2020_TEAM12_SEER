@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from "react";
 import _ from 'lodash'
 
 import "../style.css";
@@ -6,114 +6,124 @@ import "../style.css";
 import { Header, Table, Rating } from 'semantic-ui-react'
 import { render } from '@testing-library/react';
 
+import $ from "jquery";
 
-
-function exampleReducer(state, action) {
-  switch (action.type) {
-    case 'CHANGE_SORT':
-      if (state.column === action.column) {
-        return {
-          ...state,
-          data: state.data.reverse(),
-          direction:
-          state.direction === 'ascending' ? 'descending' : 'ascending',
-        }
-      }
-      
-      return {
-        column: action.column,
-        data: _.sortBy(state.data, [action.column]),
-        direction: 'ascending',
-      }
-      default:
-        throw new Error()
-  }
-}
-
-
-const ListSeerArticle = ({ seerArticles }) => {
+class ListSeerArticle extends Component {
+  // constructor(props) {
+  //   super(props);
+  //   console.log(this.props.seerArticles);
+  //   this.state = { seerArticles: [] };
+  // }
+  // const ListSeerArticle  = ({ seerArticles }) => {
   // const tableData = [
   //   { _id: '1', title: "111", author: "jjj", fromYear: 2010, toYear:2020, method: "uuu", claims: ["a", "b"]  },
   //   { _id: '2', title: "222", author: "jjj", fromYear: 2010, toYear:2020, method: "uuu", claims: ["a", "b"]  },
   // ]
-  const tableData = seerArticles;
-  // console.log(tableData);
-  // console.log(seerArticles);
 
-  const [state, dispatch] = React.useReducer(exampleReducer, {
-    column: null,
-    data: tableData,
-    direction: null,
-  })
-  const { column, data, direction } = state
   // console.log(seerArticles);
   // console.log(data);
-  
-  return (
-    <Table sortable celled striped>
-    <Table.Header>
-      <Table.Row>
-        <Table.HeaderCell className="cell-width" sorted={column === 'title' ? direction : null}
-            onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'title' })}>
-              Title
-        </Table.HeaderCell>
-        <Table.HeaderCell  className="cell-width-small" sorted={column === 'author' ? direction : null}
-            onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'author' })}>Author</Table.HeaderCell>
-        <Table.HeaderCell  className="cell-width-small">Year</Table.HeaderCell>
-        <Table.HeaderCell  className="cell-width-small" singleLine>SE Practice</Table.HeaderCell>
-        <Table.HeaderCell  >Claimed benefits</Table.HeaderCell>
-        <Table.HeaderCell  >Evidences</Table.HeaderCell>
-      </Table.Row>
-    </Table.Header>
 
-    <Table.Body>
-      {
-        !seerArticles || seerArticles.length <= 0 ?
-          (
-            <Table.Row>
-              <Table.Cell colSpan='6'>
-                No SeerArticle(s) found
+  
+  // state = {
+  //   records: []
+  // }
+
+  componentDidMount(){
+    $('table').tablesort();
+    
+  }
+
+  render() {
+    console.log(this.props.seerArticles);
+    let seerArticles = this.props.seerArticles;
+    return (
+      <Table sortable striped compact>
+        <Table.Header>
+          <Table.Row>
+            <Table.HeaderCell rowSpan='2' textAlign="center" className="cell-width" >Title</Table.HeaderCell>
+            <Table.HeaderCell rowSpan='2' textAlign="center" className="cell-width-small" >Author</Table.HeaderCell>
+            <Table.HeaderCell rowSpan='2' textAlign="center" className="cell-width-small">Year</Table.HeaderCell>
+            <Table.HeaderCell rowSpan='2' textAlign="center" className="cell-width-small" singleLine>SE Practice</Table.HeaderCell>
+            <Table.HeaderCell rowSpan='2' textAlign="center" className="cell-width">Claimed benefits</Table.HeaderCell>
+            <Table.HeaderCell colSpan='3' textAlign="center" >Evidence</Table.HeaderCell>
+          </Table.Row>
+          <Table.Row>
+            <Table.HeaderCell textAlign="center">Type</Table.HeaderCell>
+            <Table.HeaderCell textAlign="center">Strength</Table.HeaderCell>
+            <Table.HeaderCell textAlign="center">Support</Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
+
+        <Table.Body>
+          {
+            !seerArticles || seerArticles.length <= 0 ?
+              (
+                <Table.Row>
+                  <Table.Cell colSpan='6'>
+                    No SeerArticle(s) found
               </Table.Cell>
-            </Table.Row>
-          )
-          :
-          (
-            seerArticles.map(seerArticle => {
-            // data.map(({_id, title, author, year, method, claims, evidence}) => {
-            // data.map(seerArticle => {
-              return (
-              <Table.Row key={seerArticle._id} >
-                  <Table.Cell>
-                    {seerArticle.title}
-                  </Table.Cell>
-                  <Table.Cell>
-                    {seerArticle.author}
-                  </Table.Cell>
-                  <Table.Cell>
-                     {seerArticle.year}
-                  </Table.Cell>
-                  <Table.Cell>
-                     {seerArticle.method}
-                  </Table.Cell>
-                  <Table.Cell>
-                     {seerArticle.claims.map((claim) => {
-                       return (
-                      <p>{claim}</p>
-                       )
-                     }
-                     )}
-                  </Table.Cell>
-                  <Table.Cell>
-                     {seerArticle.evidence}
-                  </Table.Cell>
                 </Table.Row>
               )
-            })
-          )
-      }
-    </Table.Body>
-  </Table>
-);
-    }
+              :
+              (
+                seerArticles.map(seerArticle => {
+                  // data.map(({_id, title, author, year, method, claims, evidence}) => {
+                  // data.map(seerArticle => {
+                  return (
+                    <Table.Row key={seerArticle._id} >
+                      <Table.Cell>
+                        {seerArticle.title}
+                      </Table.Cell>
+                      <Table.Cell>
+                        {seerArticle.author}
+                      </Table.Cell>
+                      <Table.Cell>
+                        {seerArticle.year}
+                      </Table.Cell>
+                      <Table.Cell>
+                        {seerArticle.method}
+                      </Table.Cell>
+                      <Table.Cell>
+                        {seerArticle.claims.map((claim) => {
+                          return (
+                            <p>{claim.benefit}</p>
+                          )
+                        }
+                        )}
+                      </Table.Cell>
+                      <Table.Cell>
+                      {seerArticle.claims.map((claim) => {
+                          return (
+                            <p>{claim.type}</p>
+                          )
+                        }
+                        )}
+                      </Table.Cell>
+                      <Table.Cell>
+                      {seerArticle.claims.map((claim) => {
+                          return (
+                            <p>{claim.strength}</p>
+                          )
+                        }
+                        )}
+                      </Table.Cell>
+                      <Table.Cell>
+                      {seerArticle.claims.map((claim) => {
+                          return (
+                            <p>{claim.isSupport}</p>
+                          )
+                        }
+                        )}
+                      </Table.Cell>
+                    </Table.Row>
+                  )
+                })
+              )
+          }
+        </Table.Body>
+      </Table>
+    );
+  }
+}
 
 export default ListSeerArticle

@@ -15,7 +15,7 @@ import {
   Grid,
   Button,
   Radio,
-  Form
+  Form,
 } from 'semantic-ui-react'
 
 let rootContainer;
@@ -31,18 +31,18 @@ afterEach(() => {
 });
 
 describe("Search Condition Component Testing", () => {
-  it("Renders Grid", () => {
-    const wrapper = shallow(<SearchCondition />);
-    expect(wrapper.find(Grid)).to.have.length(1);
-  });
-
   it("Renders Form", () => {
     const wrapper = shallow(<SearchCondition />);
     expect(wrapper.find(Form)).to.have.length(1);
   });
 
+  it("Renders Form Input", () => {
+    const wrapper = shallow(<SearchCondition />);
+    expect(wrapper.find(Form.Input)).to.have.length(2);
+  });
+
   it("Renders Radio", () => {
     const wrapper = shallow(<SearchCondition />);
-    expect(wrapper.find(Radio)).to.have.length(4);
+    expect(wrapper.find(Form.Radio)).to.have.length(4);
   });
 });

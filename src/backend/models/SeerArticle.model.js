@@ -7,13 +7,13 @@ let SeerArticle = new Schema({
     // },
     _id: Number,
     title: String,
-    URL: String,
-    status: String,
+    // URL: String,
+    // status: String,
     date: Date,
     author: String,
     method: String,
-    claims: [String],
-    year: Number,
+    // claims: [{ benefit: String, type:String, strength:String, isSupport:String}],
+    year: Number
 });
 
 module.exports = mongoose.model('SeerArticle', SeerArticle);
