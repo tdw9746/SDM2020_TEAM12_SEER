@@ -1,13 +1,11 @@
 const mongoose = require('mongoose');
 
-console.log('No value for FOO yet:', process.env.CON);
-
 if (process.env.CON == undefined) {
-    console.log('Trying to read CON');
+    console.log('No environment value for MongoDB connection string found');
     require('dotenv').config();
 }
 
-console.log('Now the value for FOO is:', process.env.CON);
+console.log('MongoDB connection string :', process.env.CON);
 const connection = process.env.CON;
 
 mongoose.connect(connection,{ useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})

@@ -6,19 +6,11 @@ script:
 deploy:
   - provider: heroku
     api_key:
-      secure: 0+j7p0RLcGaSSNxwtncPnBWGjtmuUpGAnLbbuWqDtAXHyMc6BPYOuZYa6/vkGHtSZW1Fv6OCRmcioIJeql0hKi/7MrOntvPB/Emz4iBR3eumDiozAl2d2TJ30EHzkIdNzNEKt4UpR4dQ+lYz+7FqZqQeFG6XMx68VUkdVh3ipsZE/810Q2GwXhybNBa3qL92mVwfILAu4RX4kueRsJQoQhJmBVxbKYCBZ8PEr87S7zC6WtsjhKga25J461HikmSL4oOwbCVZK05dW+FVQPqUfTwnXA9cP89i34P9ecUYeWpBO1STMlvuoeNveYhvXATHEEKAYB7ivbmIpVDkJIL2R0Mipj71pnFyMb9bfXXHycVxwy4BgQUA7T0xWSgncSbdRX5l8LnUsVEz4Lyou3a/m/jJ9YvFwr/i2f0El5449RNpn/hX8C6n2q9VYnQIXf6YCSPITG4xLimGfiO702kPvQzT1nr3RU6MQb9qS0UCCLJn5a98KVZW4CjUHnl7J68BvEiT3R7CLz1SrOdN1EfElLMzGdwBDrmraimG5pUA9YcytHMOTM6RVqukF7BFhlJO8z8zQUP8b1G2RNvWluH0q1u/y9MAttCgQsYRlyV/sSrhm7KLPVnwweSSz4afXLEpfKxKsmDIDzUX/kHLwbnmpQaW+YSfqhSwuE6p/4zmolI=
-    app: sdm2020-team4-seer-dev
+      secure: XqWpj2UgsJ0f1xpNNffIcGPl/C2RAIOLlv+TlZu1IYpfamwNMPkBg+kOSI16C5ut8ejL2dnbMippFXbbNaLQbY8Uic3VUHszEwnsBuiHY/lxhAsmXD4oxaDJb7+VNkqrB7qfiU6pVejIDXCBjoIQSW5JvNV8/JvN2INYIOyNf/9JvxMWrS19WfzmEFA5Xya8+ws960CjCxGarY4A0NKu8xYIJ/pKsPpWyQNeYHcBHoCay3+pQCJDfst0VLYd6gtv2tD6HE8mvvpK2HrnpP3gw8pY+bpIv8vt65+9YO7lFDsvkp4MglYCKuMpPbwwAWjF9FuMUf2gyvC5+9ekOotPP73JxICcATS8Vrz8Nq4nZ66VWVOSYIjxWILZ+FfzhUcGdyS2V2ToUI/a32M3XHvoZL7SEFQPCaOsaASO3U03yGyk2qWggOHjAGITQJ7EyOdHjKvOrjr1O3v0es9REsLg9QqWf0vgKRJXKImKt0nw5a4bXYyCcQc1gdcXVNWXOMqf7+QcfsG0rsQiSK8unqtplUr6F8Th6i7fesSrO4b9nKmoGQqF8R0CUM339E2B4LPUtsiK+VlSoNSKUBjx6DRQIAhxXE5yrKhDj7L0DvPYAJHqdWKaF3ZneQCPoeNurkt3bTbBAULvxG3LoCUbCjaQxsm8Hlku0Vkbw0t5+c0o/is=
+    app: sdm2020-team12-seer-dev
     on:
-      repo: lilo2k/SDM2020_Team4_SEER
+      repo: tdw9746/SDM2020_TEAM12_SEER
       branch: dev
-  - provider: heroku
-    api_key:
-      secure: 0+j7p0RLcGaSSNxwtncPnBWGjtmuUpGAnLbbuWqDtAXHyMc6BPYOuZYa6/vkGHtSZW1Fv6OCRmcioIJeql0hKi/7MrOntvPB/Emz4iBR3eumDiozAl2d2TJ30EHzkIdNzNEKt4UpR4dQ+lYz+7FqZqQeFG6XMx68VUkdVh3ipsZE/810Q2GwXhybNBa3qL92mVwfILAu4RX4kueRsJQoQhJmBVxbKYCBZ8PEr87S7zC6WtsjhKga25J461HikmSL4oOwbCVZK05dW+FVQPqUfTwnXA9cP89i34P9ecUYeWpBO1STMlvuoeNveYhvXATHEEKAYB7ivbmIpVDkJIL2R0Mipj71pnFyMb9bfXXHycVxwy4BgQUA7T0xWSgncSbdRX5l8LnUsVEz4Lyou3a/m/jJ9YvFwr/i2f0El5449RNpn/hX8C6n2q9VYnQIXf6YCSPITG4xLimGfiO702kPvQzT1nr3RU6MQb9qS0UCCLJn5a98KVZW4CjUHnl7J68BvEiT3R7CLz1SrOdN1EfElLMzGdwBDrmraimG5pUA9YcytHMOTM6RVqukF7BFhlJO8z8zQUP8b1G2RNvWluH0q1u/y9MAttCgQsYRlyV/sSrhm7KLPVnwweSSz4afXLEpfKxKsmDIDzUX/kHLwbnmpQaW+YSfqhSwuE6p/4zmolI=
-    app: sdm2020-team4-seer-release
-    on:
-      repo: lilo2k/SDM2020_Team4_SEER
-      branch: release
 branches:
   only:
-    - master
-    - dev
+  - dev

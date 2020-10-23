@@ -1,0 +1,43 @@
+.blue-with-padding {
+    padding: 5px !important;
+    background: blue;
+}
+
+.yellow-with-large-padding {
+    padding: 70px !important;
+    background: yellow;
+}
+
+.four-hundred-width {
+    width: 400px;
+}
+
+.cell-width {
+    width: 20%;
+}
+
+.cell-width-small {
+    width: 10%;
+}
+
+/* .ui.dropdown.search{
+    min-width: 10em;
+} */
+
+.small_dropdown {
+    min-width: 8em !important;
+}
+
+.compact-horizontal {
+    margin-right: -15px;
+    margin-left: -15px;
+    padding: 3px !important;
+}
+
+.ui.grid>.row>.column.noPadding {
+    padding: 0 !important;
+}
+
+.ui.grid>.row>.column {
+    padding: 0 !important;
+}
