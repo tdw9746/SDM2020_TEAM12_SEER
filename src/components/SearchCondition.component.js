@@ -306,7 +306,7 @@ class SearchCondition extends Component {
           <Form.Dropdown required label="To" search scrolling className="small_dropdown" placeholder='To' selection options={yearOptions} value={toYear} onChange={this.handleToYear} onKeyDown={this.handleKeyDown} />
         </Form.Group>
         <Form.Group >
-          <Form.Dropdown error={this.state.methodError} required width={3} label='SE practice' fluid placeholder='Please select SE practice' clearable search selection options={practiceOptions} value={method} onChange={this.handleMethodChange} />
+          <Form.Dropdown autofocus id='sePractice' error={this.state.methodError} required width={3} label='SE practice' fluid placeholder='Please select SE practice' clearable search selection options={practiceOptions} value={method} onChange={this.handleMethodChange} />
           <Form.Dropdown error={this.state.claimsError} required width={4} label='Claimed Benefit' id="benefitDropdown" fluid placeholder='Please enter claimed benefit' multiple search selection options={claimOptions} value={claims} onChange={this.handleClaimSelect} />
           <Form.Input width={3} label='Title' placeholder='Please enter title'
             // class="search_input"
@@ -325,8 +325,8 @@ class SearchCondition extends Component {
             value={author}
             placeholder="Please enter author"
           />
-          <Form.Button size="huge" verticalAlign="" width={2} onClick={this.clearInputfields}>Clear</Form.Button>
-          <Form.Button size="huge" width={2} onClick={this.searchSeerArticle}>Search</Form.Button>
+          <Form.Button id="clearButton" size="huge" verticalAlign="" width={2} onClick={this.clearInputfields}>Clear</Form.Button>
+          <Form.Button id="searchButton" size="huge" width={2} onClick={this.searchSeerArticle}>Search</Form.Button>
         </Form.Group>
       </Form>
     );
