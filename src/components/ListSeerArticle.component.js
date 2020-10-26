@@ -4,7 +4,6 @@ import _ from 'lodash'
 import "../style.css";
 
 import { Header, Table, Rating } from 'semantic-ui-react'
-import { render } from '@testing-library/react';
 
 import $ from "jquery";
 

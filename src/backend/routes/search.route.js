@@ -19,32 +19,11 @@ router.use((req, res, next) => {
 
 // List all
 router.get("/", (req, res, next) => {
-  // let newSeerArticle = new SeerArticle({"title":"test_title", "URL":"http://google.com", "status": "queued", "date": Date.now() })
-  // newSeerArticle.save();
-  // console.log(res);
-  // SeerArticle.find({})
-  //   .then((data) => {
-  //     res.json(data);
-  //     console.log(data);
-  //     console.log(res);
-  //   })
-  // .catch(next);
   seerSearch("", "", "", "", "", "", [], res, next);
 });
 
 // search 
 router.post("/filter", (req, res, next) => {
-  console.log(req.body);
-
-  // console.log("req.body:" + req.body.task);
-  console.log("req.body.title:" + req.body.title);
-  console.log("req.body.author:" + req.body.author);
-  console.log("req.body.yearSelection:" + req.body.yearSelection);
-  console.log("req.body.fromYear:" + req.body.fromYear);
-  console.log("req.body.toYear:" + req.body.toYear);
-  console.log("req.body.method:" + req.body.method);
-  console.log("req.body.claims:" + req.body.claims);
-
   let title = req.body.title;
   let author = req.body.author;
   let yearSelection = req.body.yearSelection;
@@ -99,15 +78,6 @@ function seerSearchJson(title, author, yearSelection, fromYear, toYear, method, 
     }
   );
 
-  // if (yearSelection != "all") {
-  //   // year: { $gte: fromYear, $lte: toYear },
-  //   query = query.where({ year: { $gte: fromYear, $lte: toYear } });
-  // } else if (condition) {
-
-  // } else {
-
-  // }
-
   switch (yearSelection) {
     case "thisYear":
       query = query.where({ year: currentYear });
@@ -131,10 +101,8 @@ function seerSearchJson(title, author, yearSelection, fromYear, toYear, method, 
   // sorting
   query = query.sort({year: 'descending'});
 
-  // console.log(JSON.stringify(query, null, 4))
   console.log(query)
   return query;
 }
 
 module.exports = router;
-// module.method = seerSearchJson;

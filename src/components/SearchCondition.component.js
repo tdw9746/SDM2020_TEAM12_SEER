@@ -2,11 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import _ from 'lodash';
 
-// import faker from 'faker';
-
-// import DropdownMultipleSelection from './DropdownMultipleSelection.component';
-
-// // semantic
+// semantic
 import {
   Dropdown,
   Grid,
@@ -38,10 +34,6 @@ const practiceOptions = [
   { key: 'DDD', text: 'DDD', value: 'DDD' },
   { key: 'UDD', text: 'UDD', value: 'UDD' },
 ]
-
-// const DropdownMultipleSelection = () => (
-//   <Dropdown placeholder='Claims' fluid multiple selection options={options} />
-// )
 
 class SearchCondition extends Component {
 
