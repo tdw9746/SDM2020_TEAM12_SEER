@@ -4,12 +4,9 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path')
 
-const todoRoutes = express.Router();
 const PORT = process.env.PORT || 4000;
 
 require('./database');
-
-let Todo = require('./todo.model');
 
 // Routing
 const search = require('./routes/search.route');
