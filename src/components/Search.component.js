@@ -33,17 +33,6 @@ class Search extends Component {
       .catch(err => console.log(err))
   }
 
-  // deleteSeerArticle = (id) => {
-
-  //   axios.delete('/search/${id}')
-  //     .then(res => {
-  //       if(res.data){
-  //         this.getSeerArticles()
-  //       }
-  //     })
-  //     .catch(err => console.log(err))
-  // }
-
   render() {
     let { seerArticles } = this.state;
 

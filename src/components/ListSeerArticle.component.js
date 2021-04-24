@@ -4,29 +4,10 @@ import _ from 'lodash'
 import "../style.css";
 
 import { Header, Table, Rating } from 'semantic-ui-react'
-import { render } from '@testing-library/react';
 
 import $ from "jquery";
 
 class ListSeerArticle extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   console.log(this.props.seerArticles);
-  //   this.state = { seerArticles: [] };
-  // }
-  // const ListSeerArticle  = ({ seerArticles }) => {
-  // const tableData = [
-  //   { _id: '1', title: "111", author: "jjj", fromYear: 2010, toYear:2020, method: "uuu", claims: ["a", "b"]  },
-  //   { _id: '2', title: "222", author: "jjj", fromYear: 2010, toYear:2020, method: "uuu", claims: ["a", "b"]  },
-  // ]
-
-  // console.log(seerArticles);
-  // console.log(data);
-
-  
-  // state = {
-  //   records: []
-  // }
 
   componentDidMount(){
     $('table').tablesort();
@@ -70,7 +51,7 @@ class ListSeerArticle extends Component {
                   // data.map(({_id, title, author, year, method, claims, evidence}) => {
                   // data.map(seerArticle => {
                   return (
-                    <Table.Row key={seerArticle._id} >
+                    <Table.Row className="row" key={seerArticle._id} >
                       <Table.Cell>
                         {seerArticle.title}
                       </Table.Cell>
